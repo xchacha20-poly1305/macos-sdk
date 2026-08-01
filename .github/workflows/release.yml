@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
-      - name: Blobless clone (no file content downloaded yet)
+      - name: Blobless clone
         run: |
           git clone \
             --filter=blob:none \
@@ -26,9 +26,7 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           cd repo
-          git sparse-checkout init --cone
 
-          # List all .sdk folders from tree metadata (no blobs needed)
           SDKS=$(git ls-tree --name-only HEAD | grep '\.sdk$' | sort -V)
           TOTAL=$(echo "$SDKS" | wc -l)
           COUNT=0
@@ -36,36 +34,22 @@ jobs:
           for sdk in $SDKS; do
             COUNT=$((COUNT + 1))
             TAG="${sdk%.sdk}"
-            echo "::group::[$COUNT/$TOTAL] $sdk -> $TAG"
+            echo "::group::[$COUNT/$TOTAL] $TAG"
 
-            # Skip if release already exists
             if gh release view "$TAG" &>/dev/null; then
-              echo "Release $TAG already exists, skipping"
+              echo "exists, skip"
               echo "::endgroup::"
               continue
             fi
 
-            # Sparse checkout only this folder (fetches its blobs on demand)
-            git sparse-checkout set "$sdk"
-            git checkout HEAD -- "$sdk" 2>/dev/null || git read-tree -mu HEAD
+            git archive --format=tar HEAD -- "$sdk" | xz -T0 > "${sdk}.tar.xz"
 
-            # Pack it up
-            tar -cJvf "${sdk}.tar.xz" --use-compress-program="xz -9 --extreme" "$sdk"
+            gh release create "$TAG" \
+              "${sdk}.tar.xz" \
+              --title "$TAG" \
+              --notes "$sdk" \
+              --latest=false
 
-            # Figure out a nice title
-            # e.g. MacOSX10.14.sdk -> "macOS 10.14 SDK"
-            VERSION=$(echo "$TAG" | sed -E 's/^MacOSX//')
-            TITLE="macOS ${VERSION} SDK"
-
-            # Create the release
-            gh release create "$TAG"  "${sdk}.tar.xz" --title "$TITLE" --latest=false
-             echo "Released $TAG"
-
-            # Clean up to free disk
-            rm -rf "$sdk" "${sdk}.tar.xz"
-            git sparse-checkout set '!/*' 2>/dev/null || true
-
+            rm -f "${sdk}.tar.xz"
             echo "::endgroup::"
           done
-
-          echo "Done! Released $COUNT SDKs"
