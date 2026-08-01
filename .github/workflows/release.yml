@@ -50,8 +50,7 @@ jobs:
             git checkout HEAD -- "$sdk" 2>/dev/null || git read-tree -mu HEAD
 
             # Pack it up
-            tar -czf "${sdk}.tar.gz" "$sdk"
-            zip -rq "${sdk}.zip" "$sdk"
+            tar -cJvf "${sdk}.tar.xz" --use-compress-program="xz -9 --extreme" "$sdk"
 
             # Figure out a nice title
             # e.g. MacOSX10.14.sdk -> "macOS 10.14 SDK"
@@ -59,17 +58,11 @@ jobs:
             TITLE="macOS ${VERSION} SDK"
 
             # Create the release
-            gh release create "$TAG" \
-              "${sdk}.tar.gz" \
-              "${sdk}.zip" \
-              --title "$TITLE" \
-              --notes "## $TITLE
-             Packaged from \`$sdk\` directory" \
-             --latest=false
+            gh release create "$TAG"  "${sdk}.tar.xz" --title "$TITLE" --latest=false
              echo "Released $TAG"
 
             # Clean up to free disk
-            rm -rf "$sdk" "${sdk}.tar.gz" "${sdk}.zip"
+            rm -rf "$sdk" "${sdk}.tar.xz"
             git sparse-checkout set '!/*' 2>/dev/null || true
 
             echo "::endgroup::"
