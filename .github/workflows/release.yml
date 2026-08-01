@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   release-sdks:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04-arm
     timeout-minutes: 360
     steps:
       - name: Blobless clone
