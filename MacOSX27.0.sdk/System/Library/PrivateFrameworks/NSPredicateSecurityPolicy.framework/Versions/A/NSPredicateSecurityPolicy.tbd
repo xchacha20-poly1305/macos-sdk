@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/NSPredicateSecurityPolicy.framework/Versions/A/NSPredicateSecurityPolicy'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _RTGetNSPredicateSecurityPolicyData, _RTGetNSPredicateSecurityPolicyDeniedSelectors, 
+                       _RTPredicateSecurityPolicyClassAllowed, _RTPredicateSecurityPolicyClassSelectorAllowed, 
+                       _RTShouldApplyNSPredicateSecurityPolicy, _nspspHashName ]
+...

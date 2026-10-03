@@ -1,0 +1,11 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/StickerKitInternal.framework/Versions/A/StickerKitInternal'
+allowable-clients:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    clients:         [ Cling-iOS, Cling-macOS, StickerKit, StickerPickerService ]
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _StickerKitInternalVersionNumber, _StickerKitInternalVersionString ]
+...

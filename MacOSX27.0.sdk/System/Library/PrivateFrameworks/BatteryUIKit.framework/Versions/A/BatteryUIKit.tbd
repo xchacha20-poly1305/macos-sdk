@@ -1,0 +1,15 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/BatteryUIKit.framework/Versions/A/BatteryUIKit'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _NSStringFromPowerSource ]
+    objc-classes:    [ BUIBatteryObserver, BUIImage, BUIPowerSource, BUIViewController ]
+    objc-ivars:      [ BUIPowerSource._baselineCapacity, BUIPowerSource._isPluggedIn, 
+                       BUIPowerSource._isPluggedInDetermined, BUIPowerSource._isUPS, 
+                       BUIPowerSource._isUPSDetermined, BUIPowerSource._percentRemaining, 
+                       BUIPowerSource._percentRemainingDetermined, BUIPowerSource._psDescriptionDictionary, 
+                       BUIPowerSource._timeLeft, BUIPowerSource._timeLeftString, 
+                       BUIPowerSource._timeLeftStringDetermined ]
+...

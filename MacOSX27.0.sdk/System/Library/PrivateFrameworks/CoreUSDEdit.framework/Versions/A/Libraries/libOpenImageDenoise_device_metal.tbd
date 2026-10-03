@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/CoreUSDEdit.framework/Versions/A/Libraries/libOpenImageDenoise_device_metal.dylib'
+current-version: 0
+compatibility-version: 0
+exports:
+  - targets:         [ arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _oidn_init_module_device_metal_v20303 ]
+...

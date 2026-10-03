@@ -1,0 +1,13 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                   arm64e.x1-macos, arm64e.x1-maccatalyst ]
+install-name:    '/System/Library/PrivateFrameworks/EmailAddressing.framework/Versions/A/EmailAddressing'
+current-version: 3901.100.1
+exports:
+  - targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                       arm64e.x1-macos, arm64e.x1-maccatalyst ]
+    symbols:         [ _EAAddressComment ]
+    objc-classes:    [ EAEmailAddressGenerator, EAEmailAddressLists, EAEmailAddressParser, 
+                       EAEmailAddressSet, _EAEmailAddress, _EAEmailAddressSetEnumerator ]
+...

@@ -1,0 +1,13 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/usr/lib/updaters/libAppleTconUARPUpdater.dylib'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _AppleTconUARPRestoreInfoCopyFirmware, _AppleTconUARPRestoreInfoCreateRequest, 
+                       _AppleTconUARPRestoreInfoGetTags, _AppleTconUARPUpdaterCreate, 
+                       _AppleTconUARPUpdaterExecCommand, _AppleTconUARPUpdaterIsDone, 
+                       _BanyanUARPRestoreInfoCopyFirmware, _BanyanUARPRestoreInfoCreateRequest, 
+                       _BanyanUARPRestoreInfoGetTags, _BanyanUARPUpdaterCreate, _BanyanUARPUpdaterExecCommand, 
+                       _BanyanUARPUpdaterIsDone ]
+...

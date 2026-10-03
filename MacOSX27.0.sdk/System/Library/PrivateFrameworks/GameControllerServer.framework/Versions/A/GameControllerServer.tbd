@@ -1,0 +1,17 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/GameControllerServer.framework/Versions/A/GameControllerServer'
+current-version: 14.0.24
+swift-abi-version: 7
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ '_$sSo31GCSystemButtonArbitrationServerC014GameControllerD0E12userDefaultsABSo06GCUserH0_p_tcfC', 
+                       '_$sSo31GCSystemButtonArbitrationServerC014GameControllerD0E12userDefaultsABSo06GCUserH0_p_tcfc', 
+                       '_$sSo31GCSystemButtonArbitrationServerC014GameControllerD0EABycfC', 
+                       '_$sSo31GCSystemButtonArbitrationServerC014GameControllerD0EABycfc', 
+                       '_$sSo31GCSystemButtonArbitrationServerCMa', _GCXApplicationServicesErrorDomain ]
+    objc-classes:    [ GCSettingsServer, GCSystemButtonArbitrationServer, GCXApplicationServicesApplicationInstanceTarget, 
+                       GCXApplicationServicesApplicationTarget, GCXApplicationServicesNotificationListener, 
+                       _GCHapticServerManager ]
+...

@@ -1,0 +1,11 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/Frameworks/ScreenTime.framework/Versions/A/ScreenTime'
+current-version: 655.0.255
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _STMachServiceNameScreenTime ]
+    objc-classes:    [ STScreenTimeAgentConnection, STScreenTimeConfiguration, STScreenTimeConfigurationObserver, 
+                       STWebHistory, STWebRemoteViewController, STWebService, STWebpageController ]
+...

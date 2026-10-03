@@ -1,0 +1,8 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/SPINANDClient.framework/Versions/A/SPINANDClient'
+exports:
+  - targets:         [ arm64e-macos, arm64e.x1-macos ]
+    objc-classes:    [ SPINANDClient ]
+...

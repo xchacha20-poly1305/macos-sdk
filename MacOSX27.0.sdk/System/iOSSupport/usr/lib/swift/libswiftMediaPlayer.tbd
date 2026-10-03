@@ -1,0 +1,9 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-maccatalyst, arm64e-maccatalyst, arm64e.x1-maccatalyst ]
+install-name:    '/System/iOSSupport/usr/lib/swift/libswiftMediaPlayer.dylib'
+current-version: 4026.140.2
+reexported-libraries:
+  - targets:         [ x86_64-maccatalyst, arm64e-maccatalyst, arm64e.x1-maccatalyst ]
+    libraries:       [ '/System/iOSSupport/System/Library/Frameworks/MediaPlayer.framework/Versions/A/MediaPlayer' ]
+...

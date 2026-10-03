@@ -1,0 +1,11 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/usr/lib/libXARSigner.dylib'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _XARCMSSignatureSize, _XARRSASignatureSize, _XARSignerErrorDomain, 
+                       _XARStonehengeKeyDevelopmentCMS, _XARStonehengeKeyDevelopmentRSA, 
+                       _XARStonehengeSignerErrorDomain ]
+    objc-classes:    [ XARSigner, XARSignerDefaultSignatureProvider, XARStonehengeSigner ]
+...

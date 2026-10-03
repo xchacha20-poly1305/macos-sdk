@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ arm64e-macos, arm64e.x1-macos ]
+install-name:    '/usr/lib/libPPM.dylib'
+current-version: 0
+compatibility-version: 0
+exports:
+  - targets:         [ arm64e-macos, arm64e.x1-macos ]
+    objc-classes:    [ PPMClient, PPMClientUserClientInterface ]
+...

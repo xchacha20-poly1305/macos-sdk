@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/AboutSettings.framework/Versions/A/AboutSettings'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _parseLocalizedModelString ]
+    objc-classes:    [ ASDisplayHardwareInfo, ASDisplayRecord, ASMemoryModule, ASPlatformInfo, 
+                       ASStorageInfo, ASVolumeRecord ]
+...

@@ -1,0 +1,12 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                   arm64e.x1-macos, arm64e.x1-maccatalyst ]
+install-name:    '/System/Library/PrivateFrameworks/EmbeddingService.framework/Versions/A/EmbeddingService'
+current-version: 3600.31.21
+exports:
+  - targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                       arm64e.x1-macos, arm64e.x1-maccatalyst ]
+    symbols:         [ _EmbeddingServiceVersionNumber, _EmbeddingServiceVersionString ]
+    objc-classes:    [ QUEmbeddingOutput, QUEmbeddingService ]
+...

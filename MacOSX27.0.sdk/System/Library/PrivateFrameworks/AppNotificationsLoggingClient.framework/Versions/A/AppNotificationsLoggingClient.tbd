@@ -1,0 +1,15 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/AppNotificationsLoggingClient.framework/Versions/A/AppNotificationsLoggingClient'
+current-version: 671.0.1
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _ATXNEventTypeFromString, _ATXNEventTypeToString, _ATXNRTOutcomeToSettingResponse, 
+                       _ATXNSettingResponseToNEvent, _ATXNSettingResponseToString, 
+                       _ATXNotificationDeliveryUIFromString, _ATXNotificationDeliveryUIToString, 
+                       _ATXNotificationsLoggingClientErrorDomain, _ATXNotificationsLoggingInterface, 
+                       _ATXUserNotificationDeliveryReasonFromString, _ATXUserNotificationDeliveryReasonToString, 
+                       _AppNotificationsLoggingClientVersionNumber, _AppNotificationsLoggingClientVersionString ]
+    objc-classes:    [ ATXNotificationsInterface, ATXNotificationsLoggingClient ]
+...

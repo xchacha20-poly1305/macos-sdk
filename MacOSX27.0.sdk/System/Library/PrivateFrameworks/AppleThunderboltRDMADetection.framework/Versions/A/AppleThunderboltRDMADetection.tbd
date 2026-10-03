@@ -1,0 +1,33 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/AppleThunderboltRDMADetection.framework/Versions/A/AppleThunderboltRDMADetection'
+current-version: 0
+compatibility-version: 0
+swift-abi-version: 7
+allowable-clients:
+  - targets:         [ arm64e-macos, arm64e.x1-macos ]
+    clients:         [ AppleThunderboltRDMADetectionTests, SecurityPrivacyExtension ]
+exports:
+  - targets:         [ arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ '_$s29AppleThunderboltRDMADetection0bC0C14setRDMAEnabledyySbKF', 
+                       '_$s29AppleThunderboltRDMADetection0bC0C20isRDMAEnabledInNVRAMSbyF', 
+                       '_$s29AppleThunderboltRDMADetection0bC0C23isThunderbolt5SupportedSbyKFZ', 
+                       '_$s29AppleThunderboltRDMADetection0bC0C5queue11onPeerFound0eF4LostACSo012OS_dispatch_D0C_ys6UInt64VcyAJctKcfC', 
+                       '_$s29AppleThunderboltRDMADetection0bC0C5queue11onPeerFound0eF4LostACSo012OS_dispatch_D0C_ys6UInt64VcyAJctKcfCTj', 
+                       '_$s29AppleThunderboltRDMADetection0bC0C5queue11onPeerFound0eF4LostACSo012OS_dispatch_D0C_ys6UInt64VcyAJctKcfCTq', 
+                       '_$s29AppleThunderboltRDMADetection0bC0C5queue11onPeerFound0eF4LostACSo012OS_dispatch_D0C_ys6UInt64VcyAJctKcfc', 
+                       '_$s29AppleThunderboltRDMADetection0bC0CMa', '_$s29AppleThunderboltRDMADetection0bC0CMm', 
+                       '_$s29AppleThunderboltRDMADetection0bC0CMn', '_$s29AppleThunderboltRDMADetection0bC0CMo', 
+                       '_$s29AppleThunderboltRDMADetection0bC0CMu', '_$s29AppleThunderboltRDMADetection0bC0CN', 
+                       '_$s29AppleThunderboltRDMADetection0bC0CfD', '_$s29AppleThunderboltRDMADetection0bC0Cfd', 
+                       '_$s29AppleThunderboltRDMADetection0bC5ErrorO17failedToGetParentyA2CmFWC', 
+                       '_$s29AppleThunderboltRDMADetection0bC5ErrorO24failedToSetNVRAMVariableyA2CmFWC', 
+                       '_$s29AppleThunderboltRDMADetection0bC5ErrorO27failedToGetMatchingServicesyACs5Int32VcACmFWC', 
+                       '_$s29AppleThunderboltRDMADetection0bC5ErrorO27unexpectedLinkSpeedPropertyyA2CmFWC', 
+                       '_$s29AppleThunderboltRDMADetection0bC5ErrorO29failedToRetrieveRegistryEntryyA2CmFWC', 
+                       '_$s29AppleThunderboltRDMADetection0bC5ErrorO32failedToAllocateNotificationPortyA2CmFWC', 
+                       '_$s29AppleThunderboltRDMADetection0bC5ErrorO36failedToRegisterMatchingNotificationyACs5Int32VcACmFWC', 
+                       '_$s29AppleThunderboltRDMADetection0bC5ErrorOMa', '_$s29AppleThunderboltRDMADetection0bC5ErrorOMn', 
+                       '_$s29AppleThunderboltRDMADetection0bC5ErrorON', '_$s29AppleThunderboltRDMADetection0bC5ErrorOs0D0AAMc' ]
+...

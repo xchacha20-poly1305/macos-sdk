@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/UnblockService.framework/Versions/A/UnblockService'
+current-version: 18
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _TakeLiveStackshot ]
+    objc-classes:    [ UBUnblockReactiveRecovery, UBUnblockService ]
+...

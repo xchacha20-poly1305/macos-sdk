@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/ProactiveSupportStubs.framework/Versions/A/ProactiveSupportStubs'
+current-version: 423.0.1
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _ProactiveSupportStubsVersionNumber, _ProactiveSupportStubsVersionString ]
+    objc-classes:    [ _PASDeviceStateStub ]
+...

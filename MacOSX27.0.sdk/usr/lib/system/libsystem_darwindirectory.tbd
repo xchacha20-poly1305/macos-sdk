@@ -1,0 +1,15 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                   arm64e.x1-macos, arm64e.x1-maccatalyst ]
+install-name:    '/usr/lib/system/libsystem_darwindirectory.dylib'
+parent-umbrella:
+  - targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                       arm64e.x1-macos, arm64e.x1-maccatalyst ]
+    umbrella:        System
+exports:
+  - targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                       arm64e.x1-macos, arm64e.x1-maccatalyst ]
+    symbols:         [ _DarwinDirectoryGetGeneration, _DarwinDirectoryRecordStoreApply, 
+                       _DarwinDirectoryRecordStoreApplyWithFilter ]
+...

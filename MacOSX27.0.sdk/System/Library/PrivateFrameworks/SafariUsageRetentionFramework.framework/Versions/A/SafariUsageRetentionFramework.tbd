@@ -1,0 +1,23 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/SafariUsageRetentionFramework.framework/Versions/A/SafariUsageRetentionFramework'
+current-version: 0
+compatibility-version: 0
+swift-abi-version: 7
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ '_$s29SafariUsageRetentionFramework6ConfigV11descriptionSSvg', 
+                       '_$s29SafariUsageRetentionFramework6ConfigV11descriptionSSvpMV', 
+                       '_$s29SafariUsageRetentionFramework6ConfigV4fromACs7Decoder_p_tKcfC', 
+                       '_$s29SafariUsageRetentionFramework6ConfigV6encode2toys7Encoder_p_tKF', 
+                       '_$s29SafariUsageRetentionFramework6ConfigVACycfC', '_$s29SafariUsageRetentionFramework6ConfigVMa', 
+                       '_$s29SafariUsageRetentionFramework6ConfigVMn', '_$s29SafariUsageRetentionFramework6ConfigVN', 
+                       '_$s29SafariUsageRetentionFramework6ConfigVSEAAMc', '_$s29SafariUsageRetentionFramework6ConfigVSeAAMc', 
+                       '_$s29SafariUsageRetentionFramework6ConfigVs23CustomStringConvertibleAAMc', 
+                       '_$s29SafariUsageRetentionFramework6WorkerV3run7context6config20LighthouseBackground12MLHostResultCAG0K16ExtensionContextC_AG0K10ParametersVyAA6ConfigVGtYaF', 
+                       '_$s29SafariUsageRetentionFramework6WorkerV3run7context6config20LighthouseBackground12MLHostResultCAG0K16ExtensionContextC_AG0K10ParametersVyAA6ConfigVGtYaFTu', 
+                       '_$s29SafariUsageRetentionFramework6WorkerVACycfC', '_$s29SafariUsageRetentionFramework6WorkerVMa', 
+                       '_$s29SafariUsageRetentionFramework6WorkerVMn', '_$s29SafariUsageRetentionFramework6WorkerVN', 
+                       _SafariUsageRetentionFrameworkVersionNumber, _SafariUsageRetentionFrameworkVersionString ]
+...

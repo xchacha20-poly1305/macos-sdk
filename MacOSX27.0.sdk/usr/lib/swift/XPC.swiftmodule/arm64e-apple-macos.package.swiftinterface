@@ -1,0 +1,1215 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.4 effective-5.10 (swiftlang-6.4.0.31.4 clang-2100.3.31.1)
+// swift-module-flags: -target arm64e-apple-macos27.0 -target-variant arm64e-apple-ios27.0-macabi -enable-objc-interop -target-arch-variant arm64e.x1 -autolink-force-load -enable-library-evolution -module-link-name swiftXPC -language-mode 5 -O -library-level api -enable-experimental-feature Lifetimes -enable-upcoming-feature StrictConcurrency -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -user-module-version 167.0.2 -module-name XPC -package-name XPC
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -project-name XPC_swiftoverlay -interface-compiler-version 6.4
+import Darwin
+import Swift
+import System
+@_exported import XPC
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+package class TopLevelGraphEncodingNode {
+  @objc deinit
+}
+@_spi(Testing) public func testEncodeDecodePipeline<T>(_ value: T, userInfo: [Swift::CodingUserInfoKey : Any]) throws -> T where T : Swift::Decodable, T : Swift::Encodable
+@_spi(Testing) public func testEncodeDecodePipelineWithSerialization<T>(_ value: T, userInfo: [Swift::CodingUserInfoKey : Any]) throws -> T where T : Swift::Decodable, T : Swift::Encodable
+package func encodeToEncodingContainer<T>(_ value: T, userInfo: [Swift::CodingUserInfoKey : Any]) throws -> XPC::TopLevelGraphEncodingNode where T : Swift::Encodable
+package func decodeFromEncodingContainer<T>(_ type: T.Type, from container: XPC::TopLevelGraphEncodingNode, userInfo: [Swift::CodingUserInfoKey : Any]) throws -> T where T : Swift::Decodable
+package struct XPCEncodedContents {
+  package init(value: any Swift::Encodable, userInfo: [Swift::CodingUserInfoKey : Any] = [:]) throws
+  package func decode<T>(as: T.Type, userInfo: [Swift::CodingUserInfoKey : Any] = [:]) throws -> T where T : Swift::Decodable
+}
+@_spi(CodingUserInfo) @available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+extension Swift::Encodable {
+  @_spi(CodingUserInfo) public func encodeAsXPCObject(withUserInfo userInfo: [Swift::CodingUserInfoKey : Any] = [:]) throws -> XPC::xpc_object_t
+}
+@_spi(CodingUserInfo) @available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+extension XPC::OS_xpc_object {
+  @_spi(CodingUserInfo) public func decode<T>(as type: T.Type = T.self, withUserInfo userInfo: [Swift::CodingUserInfoKey : Any] = [:]) throws -> T where T : Swift::Decodable
+}
+@_spi(Testing) extension Swift::CodingUserInfoKey {
+  @_spi(Testing) public static let xpcCodable: Swift::CodingUserInfoKey
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+public struct XPCArray {
+  public init(_ value: XPC::xpc_object_t)
+  public init()
+  public func withUnsafeUnderlyingArray<ReturnType>(_ closure: (XPC::xpc_object_t) throws -> ReturnType) rethrows -> ReturnType
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCArray {
+  public subscript(index: Swift::Int, as type: Swift::Bool.Type = Bool.self) -> Swift::Bool? {
+    get
+  }
+  public subscript(index: Swift::Int) -> Swift::Bool? {
+    get
+    set
+  }
+  public subscript(index: Swift::Int, as type: Swift::Bool.Type = Bool.self, default defaultValue: @autoclosure () -> Swift::Bool) -> Swift::Bool {
+    get
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCArray {
+  public subscript<T>(index: Swift::Int, as type: T.Type = T.self) -> T? where T : Swift::BinaryInteger {
+    get
+  }
+  public subscript<T>(index: Swift::Int) -> T? where T : Swift::SignedInteger {
+    get
+    set
+  }
+  public subscript<T>(index: Swift::Int) -> T? where T : Swift::UnsignedInteger {
+    get
+    set
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCArray {
+  public subscript<T>(index: Swift::Int, as type: T.Type = T.self) -> T? where T : Swift::BinaryFloatingPoint {
+    get
+  }
+  public subscript<T>(index: Swift::Int) -> T? where T : Swift::BinaryFloatingPoint {
+    get
+    set
+  }
+  public subscript<T>(index: Swift::Int, as type: T.Type = T.self, default defaultValue: @autoclosure () -> T) -> T where T : Swift::BinaryFloatingPoint {
+    get
+  }
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, visionOS 27.0, *)
+extension XPC::XPCArray {
+  public subscript(index: Swift::Int, as type: Swift::RawSpan.Type = RawSpan.self) -> Swift::RawSpan? {
+    @_lifetime(borrow self)
+    get
+  }
+  public subscript(index: Swift::Int) -> Swift::RawSpan? {
+    @_lifetime(borrow self)
+    get
+    set
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCArray {
+  public subscript(index: Swift::Int, as type: Swift::String.Type = String.self) -> Swift::String? {
+    get
+  }
+  public subscript(index: Swift::Int) -> Swift::String? {
+    get
+    set
+  }
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, visionOS 27.0, *)
+extension XPC::XPCArray {
+  public subscript(index: Swift::Int, as type: _DarwinFoundation2::uuid_t.Type = uuid_t.self) -> _DarwinFoundation2::uuid_t? {
+    get
+  }
+  public subscript(index: Swift::Int) -> _DarwinFoundation2::uuid_t? {
+    get
+    set
+  }
+  public subscript(index: Swift::Int, as type: _DarwinFoundation2::uuid_t.Type = uuid_t.self, default defaultValue: @autoclosure () -> _DarwinFoundation2::uuid_t) -> _DarwinFoundation2::uuid_t {
+    get
+  }
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, visionOS 27.0, *)
+extension XPC::XPCArray {
+  public subscript(index: Swift::Int, as type: System::FileDescriptor.Type = FileDescriptor.self) -> System::FileDescriptor? {
+    get
+  }
+  public subscript(index: Swift::Int) -> System::FileDescriptor? {
+    get
+    set
+  }
+  public subscript(index: Swift::Int, as type: System::FileDescriptor.Type = FileDescriptor.self, default defaultValue: @autoclosure () -> System::FileDescriptor) -> System::FileDescriptor {
+    get
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCArray {
+  public subscript(index: Swift::Int, as type: XPC::XPCDictionary.Type = XPCDictionary.self) -> XPC::XPCDictionary? {
+    get
+  }
+  public subscript(index: Swift::Int) -> XPC::XPCDictionary? {
+    get
+    set
+  }
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, visionOS 27.0, *)
+extension XPC::XPCArray {
+  public subscript(index: Swift::Int, as type: XPC::XPCArray.Type = XPCArray.self) -> XPC::XPCArray? {
+    get
+  }
+  public subscript(index: Swift::Int) -> XPC::XPCArray? {
+    get
+    set
+  }
+  public subscript(index: Swift::Int, as type: XPC::XPCArray.Type = XPCArray.self, default defaultValue: @autoclosure () -> XPC::XPCArray) -> XPC::XPCArray {
+    get
+  }
+}
+@available(macOS 27.0, macCatalyst 27.0, *)
+@_spi_available(iOS, introduced: 27.0)
+@_spi_available(tvOS, introduced: 27.0)
+@_spi_available(watchOS, introduced: 27.0)
+extension XPC::XPCArray {
+  public subscript(index: Swift::Int, as type: XPC::XPCEndpoint.Type = XPCEndpoint.self) -> XPC::XPCEndpoint? {
+    get
+  }
+  public subscript(index: Swift::Int) -> XPC::XPCEndpoint? {
+    get
+    set
+  }
+  public subscript(index: Swift::Int, as type: XPC::XPCEndpoint.Type = XPCEndpoint.self, default defaultValue: @autoclosure () -> XPC::XPCEndpoint) -> XPC::XPCEndpoint {
+    get
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCArray {
+  public subscript(index: Swift::Int, as type: any XPC::OS_xpc_object.Type = xpc_object_t.self) -> XPC::xpc_object_t? {
+    get
+  }
+  public subscript(index: Swift::Int, as type: XPC::xpc_type_t) -> XPC::xpc_object_t? {
+    get
+  }
+  public subscript(index: Swift::Int) -> XPC::xpc_object_t? {
+    get
+    set
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCArray {
+  public func copy(into destination: XPC::XPCArray)
+  public var isEmpty: Swift::Bool {
+    get
+  }
+  public var count: Swift::Int {
+    get
+  }
+  public func forEach(_ body: (_ index: Swift::Int, _ value: XPC::xpc_object_t) throws -> Swift::Void) rethrows
+  public typealias IndexValuePair = (index: Swift::Int, value: XPC::xpc_object_t)
+  public func forEach(_ body: (XPC::XPCArray.XPC::IndexValuePair) throws -> Swift::Void) rethrows
+  public func map<ReturnType>(_ transform: (XPC::XPCArray.XPC::IndexValuePair) throws -> ReturnType) rethrows -> [ReturnType]
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCArray : Swift::Equatable {
+  public static func == (lhs: XPC::XPCArray, rhs: XPC::XPCArray) -> Swift::Bool
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCArray : Swift::Hashable {
+  public func hash(into hasher: inout Swift::Hasher)
+  public var hashValue: Swift::Int {
+    get
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCArray : Swift::CustomDebugStringConvertible {
+  public var debugDescription: Swift::String {
+    get
+  }
+}
+@_spi(Private) @available(macOS 15.0, iOS 18.0, tvOS 18.0, watchOS 11.0, *)
+public struct XPCCodableObject {
+  @_spi(Private) public init(copying object: XPC::xpc_object_t)
+}
+@_spi(Private) @available(macOS 15.0, iOS 18.0, tvOS 18.0, watchOS 11.0, *)
+extension XPC::XPCCodableObject {
+  @_spi(Private) public var type: XPC::xpc_type_t {
+    @_spi(Private) get
+  }
+  @_spi(Private) public func copyUnderlyingXPCObject() -> XPC::xpc_object_t
+}
+@_spi(Private) @available(macOS 15.0, iOS 18.0, tvOS 18.0, watchOS 11.0, *)
+extension XPC::XPCCodableObject : Swift::Equatable {
+  @_spi(Private) public static func == (lhs: XPC::XPCCodableObject, rhs: XPC::XPCCodableObject) -> Swift::Bool
+}
+@_spi(Private) @available(macOS 15.0, iOS 18.0, tvOS 18.0, watchOS 11.0, *)
+extension XPC::XPCCodableObject : Swift::Hashable {
+  @_spi(Private) public func hash(into hasher: inout Swift::Hasher)
+  @_spi(Private) public var hashValue: Swift::Int {
+    @_spi(Private) get
+  }
+}
+@_spi(Private) @available(macOS 15.0, iOS 18.0, tvOS 18.0, watchOS 11.0, *)
+extension XPC::XPCCodableObject : Swift::CustomDebugStringConvertible {
+  @_spi(Private) public var debugDescription: Swift::String {
+    @_spi(Private) get
+  }
+}
+@_spi(Private) @available(macOS 15.0, iOS 18.0, tvOS 18.0, watchOS 11.0, *)
+extension XPC::XPCCodableObject : Swift::Codable {
+  @_spi(Private) public func encode(to encoder: any Swift::Encoder) throws
+  @_spi(Private) public init(from decoder: any Swift::Decoder) throws
+}
+@_spi(Private) @available(macOS 15.0, iOS 18.0, tvOS 18.0, watchOS 11.0, *)
+public protocol XPCCodableObjectRepresentable {
+  @_spi(Private) init?(from object: XPC::XPCCodableObject)
+  @_spi(Private) var xpcCodableObject: XPC::XPCCodableObject { get }
+  @_spi(Private) static var validXPCObjectTypes: Swift::Set<XPC::xpc_type_t> { get }
+}
+@_spi(Private) extension XPC::XPCCodableObjectRepresentable {
+  @_spi(Private) public static var validXPCObjectTypes: Swift::Set<XPC::xpc_type_t> {
+    @_spi(Private) get
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+public struct XPCDictionary {
+  public init(_ value: XPC::xpc_object_t)
+  public init()
+  public func withUnsafeUnderlyingDictionary<ReturnType>(_ closure: (XPC::xpc_object_t) throws -> ReturnType) rethrows -> ReturnType
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCDictionary {
+  public subscript(key: Swift::String, as type: Swift::Bool.Type = Bool.self) -> Swift::Bool? {
+    get
+  }
+  public subscript(key: Swift::String) -> Swift::Bool? {
+    get
+    set
+  }
+  public subscript(key: Swift::String, as type: Swift::Bool.Type = Bool.self, default defaultValue: @autoclosure () -> Swift::Bool) -> Swift::Bool {
+    get
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCDictionary {
+  public subscript<T>(key: Swift::String, as type: T.Type = T.self) -> T? where T : Swift::BinaryInteger {
+    get
+  }
+  public subscript<T>(key: Swift::String) -> T? where T : Swift::SignedInteger {
+    get
+    set
+  }
+  public subscript<T>(key: Swift::String) -> T? where T : Swift::UnsignedInteger {
+    get
+    set
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCDictionary {
+  public subscript<T>(key: Swift::String, as type: T.Type = T.self) -> T? where T : Swift::BinaryFloatingPoint {
+    get
+  }
+  public subscript<T>(key: Swift::String) -> T? where T : Swift::BinaryFloatingPoint {
+    get
+    set
+  }
+  public subscript<T>(key: Swift::String, as type: T.Type = T.self, default defaultValue: @autoclosure () -> T) -> T where T : Swift::BinaryFloatingPoint {
+    get
+  }
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, visionOS 27.0, *)
+extension XPC::XPCDictionary {
+  public subscript(key: Swift::String, as type: Swift::RawSpan.Type = RawSpan.self) -> Swift::RawSpan? {
+    @_lifetime(borrow self)
+    get
+  }
+  public subscript(key: Swift::String) -> Swift::RawSpan? {
+    @_lifetime(borrow self)
+    get
+    set
+  }
+}
+@_spi(Private) @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+extension XPC::XPCDictionary {
+  @_spi(Private) public subscript(key: Swift::String, as type: [Swift::UInt8].Type = [UInt8].self) -> [Swift::UInt8]? {
+    @_spi(Private) get
+  }
+  @_spi(Private) public subscript(key: Swift::String) -> [Swift::UInt8]? {
+    @_spi(Private) get
+    @_spi(Private) set
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCDictionary {
+  public subscript(key: Swift::String, as type: Swift::String.Type = String.self) -> Swift::String? {
+    get
+  }
+  public subscript(key: Swift::String) -> Swift::String? {
+    get
+    set
+  }
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, visionOS 27.0, *)
+extension XPC::XPCDictionary {
+  public subscript(key: Swift::String, as type: _DarwinFoundation2::uuid_t.Type = uuid_t.self) -> _DarwinFoundation2::uuid_t? {
+    get
+  }
+  public subscript(key: Swift::String) -> _DarwinFoundation2::uuid_t? {
+    get
+    set
+  }
+  public subscript(key: Swift::String, as type: _DarwinFoundation2::uuid_t.Type = uuid_t.self, default defaultValue: @autoclosure () -> _DarwinFoundation2::uuid_t) -> _DarwinFoundation2::uuid_t {
+    get
+  }
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, visionOS 27.0, *)
+extension XPC::XPCDictionary {
+  public subscript(key: Swift::String, as type: System::FileDescriptor.Type = FileDescriptor.self) -> System::FileDescriptor? {
+    get
+  }
+  public subscript(key: Swift::String) -> System::FileDescriptor? {
+    get
+    set
+  }
+  public subscript(key: Swift::String, as type: System::FileDescriptor.Type = FileDescriptor.self, default defaultValue: @autoclosure () -> System::FileDescriptor) -> System::FileDescriptor {
+    get
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCDictionary {
+  public subscript(key: Swift::String, as type: XPC::XPCDictionary.Type = XPCDictionary.self) -> XPC::XPCDictionary? {
+    get
+  }
+  public subscript(key: Swift::String) -> XPC::XPCDictionary? {
+    get
+    set
+  }
+}
+@available(macOS 15.5, iOS 18.5, tvOS 18.5, watchOS 11.5, visionOS 2.5, *)
+extension XPC::XPCDictionary {
+  public subscript(key: Swift::String, as type: XPC::XPCArray.Type = XPCArray.self) -> XPC::XPCArray? {
+    get
+  }
+  public subscript(key: Swift::String) -> XPC::XPCArray? {
+    get
+    set
+  }
+  @available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, visionOS 27.0, *)
+  public subscript(key: Swift::String, as type: XPC::XPCArray.Type = XPCArray.self, default defaultValue: @autoclosure () -> XPC::XPCArray) -> XPC::XPCArray {
+    get
+  }
+}
+@available(macOS 15.0, macCatalyst 18.0, *)
+@_spi_available(iOS, introduced: 18.0)
+@_spi_available(tvOS, introduced: 18.0)
+@_spi_available(watchOS, introduced: 11.0)
+extension XPC::XPCDictionary {
+  public subscript(key: Swift::String, as type: XPC::XPCEndpoint.Type = XPCEndpoint.self) -> XPC::XPCEndpoint? {
+    get
+  }
+  public subscript(key: Swift::String) -> XPC::XPCEndpoint? {
+    get
+    set
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCDictionary {
+  public subscript(key: Swift::String, as type: any XPC::OS_xpc_object.Type = xpc_object_t.self) -> XPC::xpc_object_t? {
+    get
+  }
+  public subscript(key: Swift::String, as type: XPC::xpc_type_t) -> XPC::xpc_object_t? {
+    get
+  }
+  public subscript(key: Swift::String) -> XPC::xpc_object_t? {
+    get
+    set
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCDictionary {
+  public func copy(into destination: XPC::XPCDictionary)
+  @discardableResult
+  public func removeValue(forKey key: Swift::String) -> XPC::xpc_object_t?
+  public var isEmpty: Swift::Bool {
+    get
+  }
+  public var count: Swift::Int {
+    get
+  }
+  public func forEach(_ body: (_ key: Swift::String, _ value: XPC::xpc_object_t) throws -> Swift::Void) rethrows
+  public typealias KeyValuePair = (key: Swift::String, value: XPC::xpc_object_t)
+  public func forEach(_ body: (XPC::XPCDictionary.XPC::KeyValuePair) throws -> Swift::Void) rethrows
+  public func map<ReturnType>(_ transform: (XPC::XPCDictionary.XPC::KeyValuePair) throws -> ReturnType) rethrows -> [ReturnType]
+  public var keys: [Swift::String] {
+    get
+  }
+  public var values: [XPC::xpc_object_t] {
+    get
+  }
+  package func contains(key: Swift::String) -> Swift::Bool
+}
+@_spi(libxpcSPI) @available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCDictionary {
+  @_spi(libxpcSPI) public func createReply() -> XPC::XPCDictionary?
+  @_spi(libxpcSPI) public func sendReply()
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCDictionary {
+  public func reply(_ reply: XPC::XPCDictionary)
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCDictionary : Swift::Equatable {
+  public static func == (lhs: XPC::XPCDictionary, rhs: XPC::XPCDictionary) -> Swift::Bool
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCDictionary : Swift::Hashable {
+  public func hash(into hasher: inout Swift::Hasher)
+  public var hashValue: Swift::Int {
+    get
+  }
+}
+@available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+extension XPC::XPCDictionary : Swift::CustomDebugStringConvertible {
+  public var debugDescription: Swift::String {
+    get
+  }
+}
+@_spi(Private) extension XPC::XPCDictionary {
+  @_spi(Private) @available(macOS 14.5, iOS 17.5, tvOS 17.5, watchOS 10.5, *)
+  public var auditToken: Darwin::audit_token_t {
+    @_spi(Private) get
+  }
+}
+@_spi(CodingUserInfo) @available(macOS 26.4, iOS 26.4, tvOS 26.4, watchOS 26.4, *)
+extension XPC::XPCDictionary {
+  @_spi(CodingUserInfo) public func decode<T>(as type: T.Type = T.self, forKey key: Swift::String, withUserInfo userInfo: [Swift::CodingUserInfoKey : Any]) throws -> T where T : Swift::Decodable
+  @_spi(CodingUserInfo) public mutating func encode<T>(_ value: T, forKey key: Swift::String, withUserInfo userInfo: [Swift::CodingUserInfoKey : Any]) throws where T : Swift::Encodable
+}
+@_spi(Private) @available(macOS 26.0, iOS 26.0, tvOS 26.0, watchOS 26.0, *)
+extension XPC::XPCDictionary {
+  @_spi(Private) public func decode<T>(as type: T.Type = T.self, forKey key: Swift::String) throws -> T where T : Swift::Decodable
+  @_spi(Private) public mutating func encode<T>(_ value: T, forKey key: Swift::String) throws where T : Swift::Encodable
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+public struct XPCLiteralValue {
+  public init(_ object: XPC::xpc_object_t)
+  public init(_ value: Swift::String)
+  public init<T>(_ value: T) where T : Swift::SignedInteger
+  public init<T>(_ value: T) where T : Swift::UnsignedInteger
+  public init<T>(_ value: T) where T : Swift::BinaryFloatingPoint
+  public init(_ value: Swift::Bool)
+  public init(_ value: XPC::XPCDictionary)
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+extension XPC::XPCLiteralValue : Swift::ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift::String)
+  @available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+  public typealias ExtendedGraphemeClusterLiteralType = Swift::String
+  @available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+  public typealias StringLiteralType = Swift::String
+  @available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+  public typealias UnicodeScalarLiteralType = Swift::String
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+extension XPC::XPCLiteralValue : Swift::ExpressibleByIntegerLiteral {
+  public init(integerLiteral value: Swift::Int)
+  @available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+  public typealias IntegerLiteralType = Swift::Int
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+extension XPC::XPCLiteralValue : Swift::ExpressibleByBooleanLiteral {
+  public init(booleanLiteral value: Swift::Bool)
+  @available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+  public typealias BooleanLiteralType = Swift::Bool
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+extension XPC::XPCLiteralValue : Swift::ExpressibleByFloatLiteral {
+  public init(floatLiteral value: Swift::Double)
+  @available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+  public typealias FloatLiteralType = Swift::Double
+}
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, *)
+extension XPC::XPCDictionary : Swift::ExpressibleByDictionaryLiteral {
+  public typealias Key = Swift::String
+  public typealias Value = XPC::XPCLiteralValue
+  public init(dictionaryLiteral elements: (Swift::String, XPC::XPCLiteralValue)...)
+}
+@available(macOS 15.0, macCatalyst 18.0, *)
+@_spi_available(iOS, introduced: 18.0)
+@_spi_available(tvOS, introduced: 18.0)
+@_spi_available(watchOS, introduced: 11.0)
+public struct XPCEndpoint {
+  public init(_ endpoint: XPC::xpc_endpoint_t)
+}
+@available(macOS 15.0, macCatalyst 18.0, *)
+@_spi_available(iOS, introduced: 18.0)
+@_spi_available(tvOS, introduced: 18.0)
+@_spi_available(watchOS, introduced: 11.0)
+extension XPC::XPCEndpoint {
+  public var _endpoint: XPC::xpc_endpoint_t {
+    get
+  }
+}
+@available(macOS 15.0, macCatalyst 18.0, *)
+@_spi_available(iOS, introduced: 18.0)
+@_spi_available(tvOS, introduced: 18.0)
+@_spi_available(watchOS, introduced: 11.0)
+extension XPC::XPCEndpoint : Swift::Equatable, Swift::Hashable {
+  public static func == (a: XPC::XPCEndpoint, b: XPC::XPCEndpoint) -> Swift::Bool
+  public func hash(into hasher: inout Swift::Hasher)
+  public var hashValue: Swift::Int {
+    get
+  }
+}
+@available(macOS 15.0, macCatalyst 18.0, *)
+@_spi_available(iOS, introduced: 18.0)
+@_spi_available(tvOS, introduced: 18.0)
+@_spi_available(watchOS, introduced: 11.0)
+extension XPC::XPCEndpoint : Swift::CustomDebugStringConvertible {
+  public var debugDescription: Swift::String {
+    get
+  }
+}
+@available(macOS 15.0, macCatalyst 18.0, *)
+@_spi_available(iOS, introduced: 18.0)
+@_spi_available(tvOS, introduced: 18.0)
+@_spi_available(watchOS, introduced: 11.0)
+extension XPC::XPCEndpoint : Swift::Codable {
+  public func encode(to encoder: any Swift::Encoder) throws
+  public init(from decoder: any Swift::Decoder) throws
+}
+@available(macOS 15.0, macCatalyst 18.0, *)
+@_spi_available(iOS, introduced: 18.0)
+@_spi_available(tvOS, introduced: 18.0)
+@_spi_available(watchOS, introduced: 11.0)
+extension XPC::XPCEndpoint : @unchecked Swift::Sendable {
+}
+@available(macOS 14.0, macCatalyst 17.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+public class XPCListener {
+  @available(macOS 14.0, macCatalyst 17.0, *)
+  @_spi_available(iOS, introduced: 17.0)
+  @_spi_available(tvOS, introduced: 17.0)
+  @_spi_available(watchOS, introduced: 10.0)
+  public struct InitializationOptions : Swift::OptionSet, Swift::Sendable {
+    public let rawValue: Swift::UInt64
+    public init(rawValue: Swift::UInt64)
+    public static let none: XPC::XPCListener.XPC::InitializationOptions
+    public static let inactive: XPC::XPCListener.XPC::InitializationOptions
+    @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, macCatalyst 17.0, *)
+    public typealias ArrayLiteralElement = XPC::XPCListener.XPC::InitializationOptions
+    @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, macCatalyst 17.0, *)
+    public typealias Element = XPC::XPCListener.XPC::InitializationOptions
+    @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, macCatalyst 17.0, *)
+    public typealias RawValue = Swift::UInt64
+  }
+  @_hasMissingDesignatedInitializers public class IncomingSessionRequest {
+    public struct Decision {
+    }
+    @preconcurrency public func accept(incomingMessageHandler: @escaping @Sendable (XPC::XPCDictionary) -> XPC::XPCDictionary?, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) -> XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision
+    @preconcurrency public func accept<Message>(incomingMessageHandler: @escaping @Sendable (Message) -> (any Swift::Encodable)?, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) -> XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision where Message : Swift::Decodable
+    @preconcurrency public func accept(incomingMessageHandler: @escaping @Sendable (XPC::XPCReceivedMessage) -> (any Swift::Encodable)?, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) -> XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision
+    package func _accept(_ handler: (XPC::XPCSession) -> Swift::Void) -> XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision
+    @preconcurrency public func accept(incomingMessageHandler: @escaping @Sendable (XPC::XPCDictionary) -> XPC::XPCDictionary?, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) -> (XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision, XPC::XPCSession)
+    @preconcurrency public func accept<Message>(incomingMessageHandler: @escaping @Sendable (Message) -> (any Swift::Encodable)?, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) -> (XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision, XPC::XPCSession) where Message : Swift::Decodable
+    @preconcurrency public func accept(incomingMessageHandler: @escaping @Sendable (XPC::XPCReceivedMessage) -> (any Swift::Encodable)?, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) -> (XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision, XPC::XPCSession)
+    public func accept<Handler>(_ inactiveSessionHandler: (XPC::XPCSession) -> Handler) -> XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision where Handler : XPC::XPCPeerHandler, Handler.Input == XPC::XPCDictionary, Handler.Output == XPC::XPCDictionary
+    public func accept<Handler>(_ inactiveSessionHandler: (XPC::XPCSession) -> Handler) -> XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision where Handler : XPC::XPCPeerHandler, Handler.Input : Swift::Decodable, Handler.Output == any Swift::Encodable
+    public func accept<Handler>(_ inactiveSessionHandler: (XPC::XPCSession) -> Handler) -> XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision where Handler : XPC::XPCPeerHandler, Handler.Input == XPC::XPCReceivedMessage, Handler.Output == any Swift::Encodable
+    public func reject(reason: Swift::String) -> XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision
+    @objc deinit
+  }
+  final package let targetQueue: Dispatch::DispatchQueue?
+  @available(macOS 14.0, macCatalyst 17.0, *)
+  @_spi_available(iOS, introduced: 17.0)
+  @_spi_available(tvOS, introduced: 17.0)
+  @_spi_available(watchOS, introduced: 10.0)
+  @preconcurrency public init(service: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCListener.XPC::InitializationOptions = .none, incomingSessionHandler: @escaping @Sendable (XPC::XPCListener.XPC::IncomingSessionRequest) -> XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision) throws
+  @available(macOS 15.0, macCatalyst 18.0, *)
+  @_spi_available(iOS, introduced: 18.0)
+  @_spi_available(tvOS, introduced: 18.0)
+  @_spi_available(watchOS, introduced: 11.0)
+  @preconcurrency public init(targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCListener.XPC::InitializationOptions = .none, incomingSessionHandler: @escaping @Sendable (XPC::XPCListener.XPC::IncomingSessionRequest) -> XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision)
+  package func setIncomingSessionHandler(_ handler: @escaping @Sendable (XPC::XPCListener.XPC::IncomingSessionRequest) -> XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision)
+  @available(macOS 14.0, macCatalyst 17.0, *)
+  @_spi_available(iOS, introduced: 17.0)
+  @_spi_available(tvOS, introduced: 17.0)
+  @_spi_available(watchOS, introduced: 10.0)
+  public func activate() throws
+  @available(macOS 14.0, macCatalyst 17.0, *)
+  @_spi_available(iOS, introduced: 17.0)
+  @_spi_available(tvOS, introduced: 17.0)
+  @_spi_available(watchOS, introduced: 10.0)
+  public func cancel()
+  @objc deinit
+}
+@available(macOS 15.0, macCatalyst 18.0, *)
+@_spi_available(iOS, introduced: 18.0)
+@_spi_available(tvOS, introduced: 18.0)
+@_spi_available(watchOS, introduced: 11.0)
+extension XPC::XPCListener {
+  public var endpoint: XPC::XPCEndpoint {
+    get
+  }
+}
+@_spi(_) @available(macOS, introduced: 26.0, deprecated: 26.0, renamed: "XPCEndpoint")
+@available(iOS, introduced: 26.0, deprecated: 26.0, renamed: "XPCEndpoint")
+@available(tvOS, introduced: 26.0, deprecated: 26.0, renamed: "XPCEndpoint")
+@available(watchOS, introduced: 26.0, deprecated: 26.0, renamed: "XPCEndpoint")
+extension XPC::XPCListener {
+  @_spi(_) public typealias Endpoint = XPC::XPCEndpoint
+}
+@available(macOS 14.0, macCatalyst 17.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+@preconcurrency public protocol XPCPeerHandler : Swift::Sendable {
+  associatedtype Input
+  associatedtype Output
+  func handleIncomingRequest(_: Self.Input) -> Self.Output?
+  func handleCancellation(error: XPC::XPCRichError)
+}
+@available(macOS 14.0, macCatalyst 17.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+extension XPC::XPCPeerHandler {
+  public func handleCancellation(error: XPC::XPCRichError)
+}
+@available(macOS 14.0, macCatalyst 17.0, *)
+@_spi_available(iOS, introduced: 17.0)
+@_spi_available(tvOS, introduced: 17.0)
+@_spi_available(watchOS, introduced: 10.0)
+extension XPC::XPCListener : Swift::CustomDebugStringConvertible {
+  public var debugDescription: Swift::String {
+    get
+  }
+}
+@_spi(Private) @available(macOS 14.5, iOS 17.5, tvOS 17.5, watchOS 10.5, *)
+extension XPC::XPCListener.XPC::IncomingSessionRequest {
+  @_spi(Private) public func withUnsafeAuditToken<T>(_ auditHandler: (Darwin::audit_token_t) throws -> T) rethrows -> T
+}
+@_spi(Private) extension XPC::XPCListener {
+  @_spi(Private) public func setPeerRequirement(_ requirement: XPC::XPCPeerRequirement)
+}
+@available(macOS 26.0, macCatalyst 26.0, *)
+@_spi_available(iOS, introduced: 26.0)
+@_spi_available(tvOS, introduced: 26.0)
+@_spi_available(watchOS, introduced: 26.0)
+extension XPC::XPCListener {
+  @preconcurrency convenience public init(service: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCListener.XPC::InitializationOptions = .none, requirement: XPC::XPCPeerRequirement, incomingSessionHandler: @escaping @Sendable (XPC::XPCListener.XPC::IncomingSessionRequest) -> XPC::XPCListener.XPC::IncomingSessionRequest.XPC::Decision) throws
+}
+@_spi(Private) @available(macOS 26.0, macCatalyst 26.0, iOS 26.0, tvOS 26.0, watchOS 26.0, *)
+extension XPC::XPCListener.XPC::IncomingSessionRequest {
+  @_spi(Private) public func satisfies(requirement: XPC::XPCPeerRequirement) -> Swift::Bool
+}
+@available(macOS 26.0, macCatalyst 26.0, iOS 26.0, tvOS 26.0, watchOS 26.0, *)
+extension XPC::XPCListener : @unchecked Swift::Sendable {
+}
+@available(macOS 26.0, macCatalyst 26.0, *)
+@_spi_available(iOS, introduced: 26.0)
+@_spi_available(tvOS, introduced: 26.0)
+@_spi_available(watchOS, introduced: 26.0)
+public struct XPCPeerRequirement {
+}
+@available(macOS 26.0, macCatalyst 26.0, *)
+@_spi_available(iOS, introduced: 26.0)
+@_spi_available(tvOS, introduced: 26.0)
+@_spi_available(watchOS, introduced: 26.0)
+extension XPC::XPCPeerRequirement {
+  public static func hasEntitlement(_ entitlement: Swift::String) -> XPC::XPCPeerRequirement
+  public static func entitlement(_ entitlement: Swift::String, matches value: Swift::Bool) -> XPC::XPCPeerRequirement
+  public static func entitlement(_ entitlement: Swift::String, matches value: Swift::String) -> XPC::XPCPeerRequirement
+  public static func entitlement(_ entitlement: Swift::String, matches value: Swift::Int) -> XPC::XPCPeerRequirement
+  public static func isFromSameTeam(andMatchesSigningIdentifier: Swift::String? = nil) -> XPC::XPCPeerRequirement
+  public static func isPlatformCode(andMatchesSigningIdentifier: Swift::String? = nil) -> XPC::XPCPeerRequirement
+}
+@_spi(Private) extension XPC::XPCPeerRequirement {
+  @_spi(Private) public static func fromLWCRData(_ data: Swift::UnsafeRawBufferPointer) -> XPC::XPCPeerRequirement
+}
+@available(macOS 26.0, macCatalyst 26.0, *)
+@_spi_available(iOS, introduced: 26.0)
+@_spi_available(tvOS, introduced: 26.0)
+@_spi_available(watchOS, introduced: 26.0)
+extension XPC::XPCPeerRequirement {
+  public init(lightweightCodeRequirements dictionary: XPC::XPCDictionary)
+}
+@_spi(Private) @available(macOS 26.0, macCatalyst 26.0, iOS 26.0, tvOS 26.0, watchOS 26.0, *)
+extension Darwin::audit_token_t {
+  @_spi(Private) public func satisfies(requirement: XPC::XPCPeerRequirement) -> Swift::Bool
+}
+@available(macOS 26.0, macCatalyst 26.0, *)
+@_spi_available(iOS, introduced: 26.0)
+@_spi_available(tvOS, introduced: 26.0)
+@_spi_available(watchOS, introduced: 26.0)
+extension XPC::XPCPeerRequirement : Swift::Sendable {
+}
+@available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+public struct XPCRichError : Swift::Error, Swift::Sendable {
+  public var canRetry: Swift::Bool {
+    get
+  }
+}
+@available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+extension XPC::XPCRichError : Swift::CustomDebugStringConvertible {
+  public var debugDescription: Swift::String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+public class XPCSession {
+  public struct InitializationOptions : Swift::OptionSet, Swift::Sendable {
+    public let rawValue: Swift::UInt64
+    public init(rawValue: Swift::UInt64)
+    public static let none: XPC::XPCSession.XPC::InitializationOptions
+    public static let inactive: XPC::XPCSession.XPC::InitializationOptions
+    public static let privileged: XPC::XPCSession.XPC::InitializationOptions
+    @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+    public typealias ArrayLiteralElement = XPC::XPCSession.XPC::InitializationOptions
+    @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+    public typealias Element = XPC::XPCSession.XPC::InitializationOptions
+    @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+    public typealias RawValue = Swift::UInt64
+  }
+  @available(macOS 14.0, macCatalyst 17.0, *)
+  @_spi_available(iOS, introduced: 17.0)
+  @_spi_available(tvOS, introduced: 17.0)
+  @_spi_available(watchOS, introduced: 10.0)
+  @preconcurrency convenience public init(xpcService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @available(macOS 14.0, macCatalyst 17.0, *)
+  @_spi_available(iOS, introduced: 17.0)
+  @_spi_available(tvOS, introduced: 17.0)
+  @_spi_available(watchOS, introduced: 10.0)
+  @preconcurrency convenience public init(xpcService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, incomingMessageHandler: (@Sendable (XPC::XPCDictionary) -> XPC::XPCDictionary?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @available(macOS 14.0, macCatalyst 17.0, *)
+  @_spi_available(iOS, introduced: 17.0)
+  @_spi_available(tvOS, introduced: 17.0)
+  @_spi_available(watchOS, introduced: 10.0)
+  @preconcurrency convenience public init<Message>(xpcService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, incomingMessageHandler: (@Sendable (Message) -> (any Swift::Encodable)?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws where Message : Swift::Decodable
+  @available(macOS 14.0, macCatalyst 17.0, *)
+  @_spi_available(iOS, introduced: 17.0)
+  @_spi_available(tvOS, introduced: 17.0)
+  @_spi_available(watchOS, introduced: 10.0)
+  @preconcurrency convenience public init(xpcService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, incomingMessageHandler: (@Sendable (XPC::XPCReceivedMessage) -> (any Swift::Encodable)?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @available(macOS 14.0, macCatalyst 17.0, *)
+  @_spi_available(iOS, introduced: 17.0)
+  @_spi_available(tvOS, introduced: 17.0)
+  @_spi_available(watchOS, introduced: 10.0)
+  @preconcurrency convenience public init(machService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @available(macOS 14.0, macCatalyst 17.0, *)
+  @_spi_available(iOS, introduced: 17.0)
+  @_spi_available(tvOS, introduced: 17.0)
+  @_spi_available(watchOS, introduced: 10.0)
+  @preconcurrency convenience public init(machService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, incomingMessageHandler: (@Sendable (XPC::XPCDictionary) -> XPC::XPCDictionary?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @available(macOS 14.0, macCatalyst 17.0, *)
+  @_spi_available(iOS, introduced: 17.0)
+  @_spi_available(tvOS, introduced: 17.0)
+  @_spi_available(watchOS, introduced: 10.0)
+  @preconcurrency convenience public init<Message>(machService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, incomingMessageHandler: (@Sendable (Message) -> (any Swift::Encodable)?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws where Message : Swift::Decodable
+  @available(macOS 14.0, macCatalyst 17.0, *)
+  @_spi_available(iOS, introduced: 17.0)
+  @_spi_available(tvOS, introduced: 17.0)
+  @_spi_available(watchOS, introduced: 10.0)
+  @preconcurrency convenience public init(machService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, incomingMessageHandler: (@Sendable (XPC::XPCReceivedMessage) -> (any Swift::Encodable)?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @preconcurrency public func setIncomingMessageHandler(_ incomingMessageHandler: @escaping @Sendable (XPC::XPCDictionary) -> XPC::XPCDictionary?)
+  @preconcurrency public func setIncomingMessageHandler<Message>(_ incomingMessageHandler: @escaping @Sendable (Message) -> (any Swift::Encodable)?) where Message : Swift::Decodable
+  @preconcurrency public func setIncomingMessageHandler(_ incomingMessageHandler: @escaping @Sendable (XPC::XPCReceivedMessage) -> (any Swift::Encodable)?)
+  @preconcurrency public func setCancellationHandler(_ cancellationHandler: @escaping @Sendable (XPC::XPCRichError) -> Swift::Void)
+  public func setTargetQueue(_ targetQueue: Dispatch::DispatchQueue)
+  public func activate() throws
+  public func cancel(reason: Swift::String)
+  package func rejectPeer(reason: Swift::String)
+  public func send(message: XPC::XPCDictionary) throws
+  public func send<Message>(_ message: Message) throws where Message : Swift::Encodable
+  public func sendSync(message: XPC::XPCDictionary) throws -> XPC::XPCDictionary
+  public func sendSync<Message, Reply>(_ message: Message) throws -> Reply where Message : Swift::Encodable, Reply : Swift::Decodable
+  public func sendSync<Message>(_ message: Message) throws -> XPC::XPCReceivedMessage where Message : Swift::Encodable
+  @preconcurrency public func send(message: XPC::XPCDictionary, replyHandler: @escaping @Sendable (Swift::Result<XPC::XPCDictionary, XPC::XPCRichError>) -> Swift::Void)
+  @preconcurrency public func send<Message, Reply>(_ message: Message, replyHandler: @escaping @Sendable (Swift::Result<Reply, any Swift::Error>) -> Swift::Void) throws where Message : Swift::Encodable, Reply : Swift::Decodable
+  @preconcurrency public func send<Message>(_ message: Message, replyHandler: @escaping @Sendable (Swift::Result<XPC::XPCReceivedMessage, XPC::XPCRichError>) -> Swift::Void) throws where Message : Swift::Encodable
+  @objc deinit
+}
+@available(macOS 15.0, macCatalyst 18.0, *)
+@_spi_available(iOS, introduced: 18.0)
+@_spi_available(tvOS, introduced: 18.0)
+@_spi_available(watchOS, introduced: 11.0)
+extension XPC::XPCSession {
+  @preconcurrency convenience public init(endpoint: XPC::XPCEndpoint, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @preconcurrency convenience public init(endpoint: XPC::XPCEndpoint, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, incomingMessageHandler: (@Sendable (XPC::XPCDictionary) -> XPC::XPCDictionary?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @preconcurrency convenience public init<Message>(endpoint: XPC::XPCEndpoint, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, incomingMessageHandler: (@Sendable (Message) -> (any Swift::Encodable)?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws where Message : Swift::Decodable
+  @preconcurrency convenience public init(endpoint: XPC::XPCEndpoint, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, incomingMessageHandler: (@Sendable (XPC::XPCReceivedMessage) -> (any Swift::Encodable)?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+}
+@available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+extension XPC::XPCSession : Swift::CustomDebugStringConvertible {
+  public var debugDescription: Swift::String {
+    get
+  }
+}
+@_spi(SessionConnectionCompatibility) @available(macOS 14.4, iOS 17.4, tvOS 17.4, watchOS 10.4, *)
+extension XPC::XPCSession {
+  @_spi(SessionConnectionCompatibility) @preconcurrency convenience public init(fromConnection connection: XPC::xpc_connection_t, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @_spi(SessionConnectionCompatibility) @preconcurrency convenience public init(fromConnection connection: XPC::xpc_connection_t, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, incomingMessageHandler: (@Sendable (XPC::XPCDictionary) -> XPC::XPCDictionary?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @_spi(SessionConnectionCompatibility) @preconcurrency convenience public init<Message>(fromConnection connection: XPC::xpc_connection_t, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, incomingMessageHandler: (@Sendable (Message) -> (any Swift::Encodable)?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws where Message : Swift::Decodable
+  @_spi(SessionConnectionCompatibility) @preconcurrency convenience public init(fromConnection connection: XPC::xpc_connection_t, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, incomingMessageHandler: (@Sendable (XPC::XPCReceivedMessage) -> (any Swift::Encodable)?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @_spi(SessionConnectionCompatibility) public func extractConnection() -> XPC::xpc_connection_t
+}
+@_spi(Private) extension XPC::XPCSession {
+  @_spi(Private) @available(iOS 18.0, tvOS 18.0, watchOS 11.0, bridgeOS 8.0, *)
+  @available(macOS, unavailable)
+  public func setTargetUserSession(userIdentifier uid: Swift::UInt32)
+}
+@available(macOS 26.0, macCatalyst 26.0, *)
+@_spi_available(iOS, introduced: 26.0)
+@_spi_available(tvOS, introduced: 26.0)
+@_spi_available(watchOS, introduced: 26.0)
+extension XPC::XPCSession {
+  public func setPeerRequirement(_ requirement: XPC::XPCPeerRequirement)
+}
+@available(macOS 26.0, macCatalyst 26.0, *)
+@_spi_available(iOS, introduced: 26.0)
+@_spi_available(tvOS, introduced: 26.0)
+@_spi_available(watchOS, introduced: 26.0)
+extension XPC::XPCSession {
+  @preconcurrency convenience public init(xpcService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, requirement: XPC::XPCPeerRequirement, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @preconcurrency convenience public init(xpcService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, requirement: XPC::XPCPeerRequirement, incomingMessageHandler: (@Sendable (XPC::XPCDictionary) -> XPC::XPCDictionary?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @preconcurrency convenience public init<Message>(xpcService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, requirement: XPC::XPCPeerRequirement, incomingMessageHandler: (@Sendable (Message) -> (any Swift::Encodable)?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws where Message : Swift::Decodable
+  @preconcurrency convenience public init(xpcService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, requirement: XPC::XPCPeerRequirement, incomingMessageHandler: (@Sendable (XPC::XPCReceivedMessage) -> (any Swift::Encodable)?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @preconcurrency convenience public init(machService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, requirement: XPC::XPCPeerRequirement, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @preconcurrency convenience public init(machService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, requirement: XPC::XPCPeerRequirement, incomingMessageHandler: (@Sendable (XPC::XPCDictionary) -> XPC::XPCDictionary?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+  @preconcurrency convenience public init<Message>(machService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, requirement: XPC::XPCPeerRequirement, incomingMessageHandler: (@Sendable (Message) -> (any Swift::Encodable)?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws where Message : Swift::Decodable
+  @preconcurrency convenience public init(machService: Swift::String, targetQueue: Dispatch::DispatchQueue? = nil, options: XPC::XPCSession.XPC::InitializationOptions = .none, requirement: XPC::XPCPeerRequirement, incomingMessageHandler: (@Sendable (XPC::XPCReceivedMessage) -> (any Swift::Encodable)?)? = nil, cancellationHandler: (@Sendable (XPC::XPCRichError) -> Swift::Void)? = nil) throws
+}
+@available(macOS 26.0, iOS 26.0, tvOS 26.0, watchOS 26.0, *)
+extension XPC::XPCSession : @unchecked Swift::Sendable {
+}
+extension XPC::XPCSession {
+  package func send<Message>(_ message: Message, userInfo: [Swift::CodingUserInfoKey : Any], replyHandler: @escaping @Sendable (Swift::Result<XPC::XPCReceivedMessage, XPC::XPCRichError>) -> Swift::Void) throws where Message : Swift::Encodable
+  package var auditToken: Darwin::audit_token_t {
+    get
+  }
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_CONNECTION: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_ENDPOINT: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_NULL: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_BOOL: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_INT64: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_UINT64: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_DOUBLE: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_DATE: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_DATA: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_STRING: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_UUID: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_FD: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_SHMEM: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_ARRAY: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_DICTIONARY: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_ERROR: XPC::xpc_type_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_TYPE_ACTIVITY: XPC::xpc_type_t {
+  get
+}
+@available(macOS 14.0, iOS 17.0, watchOS 10.0, tvOS 17.0, *)
+public var XPC_TYPE_RICH_ERROR: XPC::xpc_type_t {
+  get
+}
+@_spi(Private) public var XPC_TYPE_POINTER: XPC::xpc_type_t {
+  @_spi(Private) get
+}
+@_spi(Private) public var XPC_TYPE_MACH_SEND: XPC::xpc_type_t {
+  @_spi(Private) get
+}
+@_spi(Private) public var XPC_TYPE_SERIALIZER: XPC::xpc_type_t {
+  @_spi(Private) get
+}
+@_spi(Private) public var XPC_TYPE_PIPE: XPC::xpc_type_t {
+  @_spi(Private) get
+}
+@_spi(Private) public var XPC_TYPE_MACH_RECV: XPC::xpc_type_t {
+  @_spi(Private) get
+}
+@_spi(Private) public var XPC_TYPE_BUNDLE: XPC::xpc_type_t {
+  @_spi(Private) get
+}
+@_spi(Private) public var XPC_TYPE_SERVICE: XPC::xpc_type_t {
+  @_spi(Private) get
+}
+@_spi(Private) public var XPC_TYPE_SERVICE_INSTANCE: XPC::xpc_type_t {
+  @_spi(Private) get
+}
+@_spi(Private) public var XPC_TYPE_FILE_TRANSFER: XPC::xpc_type_t {
+  @_spi(Private) get
+}
+@_spi(Private) public var XPC_TYPE_MACH_SEND_ONCE: XPC::xpc_type_t {
+  @_spi(Private) get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+nonisolated(unsafe) public let XPC_ERROR_KEY_DESCRIPTION: Swift::UnsafePointer<Swift::CChar>
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+nonisolated(unsafe) public let XPC_EVENT_KEY_NAME: Swift::UnsafePointer<Swift::CChar>
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_BOOL_TRUE: XPC::xpc_object_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_BOOL_FALSE: XPC::xpc_object_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_ARRAY_APPEND: _Builtin_stddef::size_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_ERROR_CONNECTION_INTERRUPTED: XPC::xpc_object_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_ERROR_CONNECTION_INVALID: XPC::xpc_object_t {
+  get
+}
+@available(macOS 10.10, iOS 8.0, watchOS 2.0, tvOS 9.0, *)
+public var XPC_ERROR_TERMINATION_IMMINENT: XPC::xpc_object_t {
+  get
+}
+@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, *)
+public var XPC_ERROR_PEER_CODE_SIGNING_REQUIREMENT: XPC::xpc_object_t {
+  get
+}
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "XPCSession")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "XPCSession")
+public typealias xpc_session_t = XPC::OS_xpc_object
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "debugDescription")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "debugDescription")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "debugDescription")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "debugDescription")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "debugDescription")
+public func xpc_session_copy_description(_ session: any XPC::OS_xpc_object) -> Swift::UnsafeMutablePointer<Swift::CChar>?
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "XPCSession.InitializationOptions")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession.InitializationOptions")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession.InitializationOptions")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession.InitializationOptions")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "XPCSession.InitializationOptions")
+public struct xpc_session_create_flags_t : Swift::OptionSet, @unchecked Swift::Sendable {
+  public var rawValue: Swift::UInt64 {
+    get
+  }
+  public init(rawValue: Swift::UInt64)
+  public static let none: XPC::xpc_session_create_flags_t
+  public static let privileged: XPC::xpc_session_create_flags_t
+  public static let inactive: XPC::xpc_session_create_flags_t
+  @available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "XPCSession.InitializationOptions")
+  @_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession.InitializationOptions")
+  @_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession.InitializationOptions")
+  @_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "XPCSession.InitializationOptions")
+  @available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession.InitializationOptions")
+  public typealias ArrayLiteralElement = XPC::xpc_session_create_flags_t
+  @available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "XPCSession.InitializationOptions")
+  @_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession.InitializationOptions")
+  @_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession.InitializationOptions")
+  @_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "XPCSession.InitializationOptions")
+  @available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession.InitializationOptions")
+  public typealias Element = XPC::xpc_session_create_flags_t
+  @available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "XPCSession.InitializationOptions")
+  @_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession.InitializationOptions")
+  @_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession.InitializationOptions")
+  @_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "XPCSession.InitializationOptions")
+  @available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession.InitializationOptions")
+  public typealias RawValue = Swift::UInt64
+}
+@available(macOS, introduced: 13.0, deprecated: 14.0, message: "See XPCSession initializer")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, message: "See XPCSession initializer")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, message: "See XPCSession initializer")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, message: "See XPCSession initializer")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, message: "See XPCSession initializer")
+public typealias xpc_session_cancel_handler_t = (XPC::xpc_rich_error_t) -> Swift::Void
+@available(macOS, introduced: 13.0, deprecated: 14.0, message: "See XPCSession initializer")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, message: "See XPCSession initializer")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, message: "See XPCSession initializer")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, message: "See XPCSession initializer")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, message: "See XPCSession initializer")
+public typealias xpc_session_incoming_message_handler_t = (XPC::xpc_object_t) -> Swift::Void
+@available(macOS, introduced: 13.0, deprecated: 14.0, message: "See XPCSession.send(_:replyHandler)")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, message: "See XPCSession.send(_:replyHandler)")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, message: "See XPCSession.send(_:replyHandler)")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, message: "See XPCSession.send(_:replyHandler)")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, message: "See XPCSession.send(_:replyHandler)")
+public typealias xpc_session_reply_handler_t = (XPC::xpc_object_t?, XPC::xpc_rich_error_t?) -> Swift::Void
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "XPCSession(xpcService:)")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession(xpcService:)")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession(xpcService:)")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession(xpcService:)")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "XPCSession(xpcService:)")
+public func xpc_session_create_xpc_service(_ name: Swift::UnsafePointer<Swift::CChar>, _ target_queue: Dispatch::dispatch_queue_t?, _ flags: XPC::xpc_session_create_flags_t, _ error_out: Swift::AutoreleasingUnsafeMutablePointer<XPC::xpc_rich_error_t?>?) -> (any XPC::OS_xpc_object)?
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "XPCSession(machService:)")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession(machService:)")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession(machService:)")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "XPCSession(machService:)")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "XPCSession(machService:)")
+public func xpc_session_create_mach_service(_ mach_service: Swift::UnsafePointer<Swift::CChar>, _ target_queue: Dispatch::dispatch_queue_t?, _ flags: XPC::xpc_session_create_flags_t, _ error_out: Swift::AutoreleasingUnsafeMutablePointer<XPC::xpc_rich_error_t?>?) -> (any XPC::OS_xpc_object)?
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "setIncomingMessageHandler()")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "setIncomingMessageHandler()")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "setIncomingMessageHandler()")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "setIncomingMessageHandler()")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "setIncomingMessageHandler()")
+public func xpc_session_set_incoming_message_handler(_ session: any XPC::OS_xpc_object, _ handler: @escaping XPC::xpc_session_incoming_message_handler_t)
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "setCancellationHandler()")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "setCancellationHandler()")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "setCancellationHandler()")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "setCancellationHandler()")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "setCancellationHandler()")
+public func xpc_session_set_cancel_handler(_ session: any XPC::OS_xpc_object, _ cancel_handler: @escaping XPC::xpc_session_cancel_handler_t)
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "setTargetQueue()")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "setTargetQueue()")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "setTargetQueue()")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "setTargetQueue()")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "setTargetQueue()")
+public func xpc_session_set_target_queue(_ session: any XPC::OS_xpc_object, _ target_queue: Dispatch::dispatch_queue_t?)
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "activate()")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "activate()")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "activate()")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "activate()")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "activate()")
+public func xpc_session_activate(_ session: any XPC::OS_xpc_object, _ error_out: Swift::AutoreleasingUnsafeMutablePointer<XPC::xpc_rich_error_t?>?) -> Swift::Bool
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "cancel(reason:)")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "cancel(reason:)")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "cancel(reason:)")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "cancel(reason:)")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "cancel(reason:)")
+public func xpc_session_cancel(_ session: any XPC::OS_xpc_object)
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "send(message:)")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "send(message:)")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "send(message:)")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "send(message:)")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "send(message:)")
+public func xpc_session_send_message(_ session: any XPC::OS_xpc_object, _ message: XPC::xpc_object_t) -> XPC::xpc_rich_error_t?
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "sendSync(message:)")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "sendSync(message:)")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "sendSync(message:)")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "sendSync(message:)")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "sendSync(message:)")
+public func xpc_session_send_message_with_reply_sync(_ session: any XPC::OS_xpc_object, _ message: XPC::xpc_object_t, _ error_out: Swift::AutoreleasingUnsafeMutablePointer<XPC::xpc_rich_error_t?>?) -> XPC::xpc_object_t?
+@available(macOS, introduced: 13.0, deprecated: 14.0, renamed: "send(message:replyHandler:)")
+@available(macCatalyst, introduced: 16.0, deprecated: 17.0, renamed: "send(message:replyHandler:)")
+@_spi_available(iOS, introduced: 16.0, deprecated: 17.0, renamed: "send(message:replyHandler:)")
+@_spi_available(tvOS, introduced: 16.0, deprecated: 17.0, renamed: "send(message:replyHandler:)")
+@_spi_available(watchOS, introduced: 9.0, deprecated: 10.0, renamed: "send(message:replyHandler:)")
+public func xpc_session_send_message_with_reply_async(_ session: any XPC::OS_xpc_object, _ message: XPC::xpc_object_t, _ reply_handler: @escaping XPC::xpc_session_reply_handler_t)
+@available(*, unavailable, renamed: "XPCListener")
+public typealias xpc_listener_t = XPC::OS_xpc_listener
+@available(*, unavailable, renamed: "XPCListener.InitializationOptions")
+public struct xpc_listener_create_flags_t {
+}
+@available(*, unavailable, message: "see XPCListener(service:) and XPCListener.XPCPeerHandler")
+public typealias xpc_listener_incoming_session_handler_t = (any XPC::OS_xpc_object) -> Swift::Void
+@available(*, unavailable, renamed: "debugDescription")
+public func xpc_listener_copy_description(_ listener: XPC::xpc_listener_t) -> Swift::UnsafeMutablePointer<Swift::CChar>?
+@available(*, unavailable, renamed: "XPCListener(service:)")
+public func xpc_listener_create(_ service: Swift::UnsafePointer<Swift::CChar>, _ target_queue: Dispatch::dispatch_queue_t?, _ flags: XPC::xpc_listener_create_flags_t, _ incoming_session_handler: @escaping XPC::xpc_listener_incoming_session_handler_t, _ error_out: Swift::AutoreleasingUnsafeMutablePointer<XPC::xpc_rich_error_t?>?) -> XPC::xpc_listener_t?
+@available(*, unavailable, renamed: "activate()")
+public func xpc_listener_activate(_ listener: XPC::xpc_listener_t, _ error_out: Swift::AutoreleasingUnsafeMutablePointer<XPC::xpc_rich_error_t?>?) -> Swift::Bool
+@available(*, unavailable, renamed: "cancel()")
+public func xpc_listener_cancel(_ listener: XPC::xpc_listener_t)
+@available(*, unavailable, renamed: "XPCListener.IncomingSessionRequest.reject(reason:)")
+public func xpc_listener_reject_peer(_ peer: any XPC::OS_xpc_object, _ reason: Swift::UnsafePointer<Swift::CChar>)
+@available(macOS, introduced: 10.7, deprecated: 14.4, message: "Use Swift's automatic reference counting to manage the lifetime of XPC objects")
+@available(macCatalyst, introduced: 4.0, deprecated: 17.4, message: "Use Swift's automatic reference counting to manage the lifetime of XPC objects")
+@_spi_available(iOS, introduced: 5.0, deprecated: 17.4, message: "Use Swift's automatic reference counting to manage the lifetime of XPC objects")
+@_spi_available(tvOS, introduced: 5.0, deprecated: 17.4, message: "Use Swift's automatic reference counting to manage the lifetime of XPC objects")
+@_spi_available(watchOS, introduced: 2.0, deprecated: 10.4, message: "Use Swift's automatic reference counting to manage the lifetime of XPC objects")
+public func xpc_retain(_ object: XPC::xpc_object_t) -> XPC::xpc_object_t
+@available(macOS, introduced: 10.7, deprecated: 14.4, message: "Use Swift's automatic reference counting to manage the lifetime of XPC objects")
+@available(macCatalyst, introduced: 4.0, deprecated: 17.4, message: "Use Swift's automatic reference counting to manage the lifetime of XPC objects")
+@_spi_available(iOS, introduced: 5.0, deprecated: 17.4, message: "Use Swift's automatic reference counting to manage the lifetime of XPC objects")
+@_spi_available(tvOS, introduced: 5.0, deprecated: 17.4, message: "Use Swift's automatic reference counting to manage the lifetime of XPC objects")
+@_spi_available(watchOS, introduced: 2.0, deprecated: 10.4, message: "Use Swift's automatic reference counting to manage the lifetime of XPC objects")
+public func xpc_release(_ object: XPC::xpc_object_t)
+@_spi(Private) public func xpc_uuid_get_uuid(_ xuuid: XPC::xpc_object_t) -> _DarwinFoundation2::uuid_t?
+@_spi(Private) public func xpc_uuid_create_with_uuid(_ uuid: _DarwinFoundation2::uuid_t) -> XPC::xpc_object_t
+@_spi(Internal) extension Swift::Array where Element == Swift::UInt8 {
+  @_spi(Internal) public var byteDescription: Swift::String {
+    @_spi(Internal) get
+  }
+}
+extension Darwin::audit_token_t {
+  package var auid: Swift::UInt32 {
+    get
+  }
+  package var euid: Swift::UInt32 {
+    get
+  }
+  package var egid: Swift::UInt32 {
+    get
+  }
+  package var ruid: Swift::UInt32 {
+    get
+  }
+  package var rgid: Swift::UInt32 {
+    get
+  }
+  package var pid: Swift::UInt32 {
+    get
+  }
+  package var asid: Swift::UInt32 {
+    get
+  }
+  package var execcnt: Swift::UInt32 {
+    get
+  }
+  package func fromSameProcessAs(_ rhs: Darwin::audit_token_t) -> Swift::Bool
+  package var isValid: Swift::Bool {
+    get
+  }
+}
+@available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+public struct XPCReceivedMessage {
+  @_spi(Internal) public init(dictionary: XPC::XPCDictionary)
+  package func decode<T>(as type: T.Type = T.self, userInfo: [Swift::CodingUserInfoKey : Any]) throws -> T where T : Swift::Decodable
+  public func decode<T>(as type: T.Type = T.self) throws -> T where T : Swift::Decodable
+  package func reply<Message>(_ object: Message, userInfo: [Swift::CodingUserInfoKey : Any]) where Message : Swift::Encodable
+  public func reply<Message>(_ object: Message) where Message : Swift::Encodable
+  @preconcurrency public func handoffReply(to queue: Dispatch::DispatchQueue, _ continuation: @escaping @Sendable () -> Swift::Void) -> (any Swift::Encodable)?
+  public var expectsReply: Swift::Bool {
+    get
+  }
+  public var isSync: Swift::Bool {
+    get
+  }
+}
+@_spi(Private) @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+extension XPC::XPCReceivedMessage {
+  @_spi(Private) public func detachHandoff()
+  @_spi(Private) public var auditToken: Darwin::audit_token_t {
+    @_spi(Private) get
+  }
+}
+@available(macOS 26.0, macCatalyst 26.0, *)
+@_spi_available(iOS, introduced: 26.0)
+@_spi_available(tvOS, introduced: 26.0)
+@_spi_available(watchOS, introduced: 26.0)
+extension XPC::XPCReceivedMessage {
+  public func senderSatisfies(_ requirement: XPC::XPCPeerRequirement) -> Swift::Bool
+}

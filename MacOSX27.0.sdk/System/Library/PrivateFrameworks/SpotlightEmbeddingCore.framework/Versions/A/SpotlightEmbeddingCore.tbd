@@ -1,0 +1,11 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/SpotlightEmbeddingCore.framework/Versions/A/SpotlightEmbeddingCore'
+current-version: 2459.255
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _SPEmbeddingProviderGetShared, _SPEmbeddingProviderGetVersion, 
+                       _SPEmbeddingProviderRegister ]
+    objc-classes:    [ SPEmbeddingResult, SPTextInput ]
+...

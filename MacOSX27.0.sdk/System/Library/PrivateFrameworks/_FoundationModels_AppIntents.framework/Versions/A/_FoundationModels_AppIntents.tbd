@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/_FoundationModels_AppIntents.framework/Versions/A/_FoundationModels_AppIntents'
+current-version: 2.0.68
+swift-abi-version: 7
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ __FoundationModels_AppIntentsVersionNumber, __FoundationModels_AppIntentsVersionString ]
+...

@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/ShortcutDropletServices.framework/Versions/A/ShortcutDropletServices'
+exports:
+  - targets:         [ x86_64-macos, arm64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _ShortcutDropletServicesVersionNumber, _ShortcutDropletServicesVersionString, 
+                       _WFShortcutDropletErrorDomain, _WFShortcutDropletServicesMain ]
+    objc-classes:    [ WFShortcutDropletAppDelegate ]
+...

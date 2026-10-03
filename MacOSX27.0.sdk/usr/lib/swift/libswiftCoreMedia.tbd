@@ -1,0 +1,11 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                   arm64e.x1-macos, arm64e.x1-maccatalyst ]
+install-name:    '/usr/lib/swift/libswiftCoreMedia.dylib'
+current-version: 3350.77.5
+reexported-libraries:
+  - targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                       arm64e.x1-macos, arm64e.x1-maccatalyst ]
+    libraries:       [ '/System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia' ]
+...

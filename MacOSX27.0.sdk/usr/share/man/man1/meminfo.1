@@ -1,0 +1,277 @@
+.\" Copyright (c) 2026, Apple Inc.  All rights reserved.
+.\"
+.Dd March 13, 2026
+.Dt MEMINFO 1
+.Os
+.Sh NAME
+.Nm meminfo
+.Nd display physical memory usage breakdown
+.Sh SYNOPSIS
+.Nm
+.Op Fl \-summary
+.Op Fl \-zones
+.Op Fl \-raw
+.Op Fl \-all
+.Op Fl \-quiet
+.Op Fl \-csv Ar path
+.Op Fl \-perfdata Ar path
+.Op Fl \-interval Ar seconds
+.Op Fl \-count Ar n
+.Op Fl \-duration Ar seconds
+.Sh DESCRIPTION
+.Nm
+displays a breakdown of physical memory usage by category.
+By default each category is printed as its own section: a header line with the
+category's page count and size, followed by indented subcategory rows whose
+percentage bars are relative to that category's total.
+Any portion of a category not covered by its subcategories is shown as an
+.Em Unaccounted
+row.
+A final
+.Em Physical Memory
+summary breaks the total down into the main categories, and a
+.Em Swap
+section follows.
+.Pp
+The following options are available:
+.Bl -tag -width "--interval seconds"
+.It Fl \-summary
+Show only the
+.Em Physical Memory
+summary and the
+.Em Swap
+section, omitting the per-category detail sections.
+.It Fl \-zones
+Expand the aggregate wired
+.Em Zones
+row into one row per kernel zone.
+This requires root privileges; without them,
+.Nm
+prints a warning and shows the aggregate
+.Em Zones
+total instead.
+.It Fl \-raw
+Show raw metric names
+.Po e.g.\&
+.Li anonymous_purgeable
+.Pc
+instead of human-readable display names
+.Po e.g.\&
+.Li Purgeable
+.Pc .
+.It Fl \-all
+Show all metrics, including those that are normally hidden when their
+value is zero
+.Pq e.g.\& Secluded
+or below 1\ MB
+.Pq wired sites ,
+and overlapping subtotals that are normally excluded from the breakdown
+.Pq e.g.\& Purgeable , Shared cache .
+MTE-related metrics are also included regardless of hardware capability.
+.It Fl \-quiet
+Suppress summary output to stdout.
+Useful when only CSV or perfdata output is desired.
+.It Fl \-csv Ar path
+Write CSV output to
+.Ar path .
+The first line is a header row; subsequent lines are data rows.
+All memory values are in bytes.
+Without
+.Fl \-interval ,
+a single data row is written.
+.It Fl \-interval Ar seconds
+Sample repeatedly, sleeping
+.Ar seconds
+between samples.
+Fractional values are accepted
+.Po e.g.\&
+.Li 0.5
+.Pc .
+.Pp
+In the default formatted mode, the screen is cleared before each sample.
+In CSV mode, each sample is emitted as an additional data row after a
+single header.
+.It Fl \-count Ar n
+Stop after
+.Ar n
+samples.
+Requires
+.Fl \-interval
+to have any effect; without it, only one sample is taken regardless.
+.It Fl \-duration Ar seconds
+Stop after
+.Ar seconds
+have elapsed.
+Requires
+.Fl \-interval
+to have any effect.
+.It Fl \-perfdata Ar path
+Write output to a perfdata file at
+.Ar path .
+Each memory category is recorded as a separate metric in bytes.
+Individual wired sites
+.Pq Li category=wired
+and carveout regions
+.Pq Li category=static_carveouts
+are included as additional metrics.
+When combined with
+.Fl \-interval ,
+each sample is written as a separate group in the same perfdata file.
+.El
+.Pp
+When
+.Fl \-interval
+is active,
+.Nm
+installs signal handlers for
+.Dv SIGINT
+and
+.Dv SIGTERM .
+Both
+.Fl \-count
+and
+.Fl \-duration
+may be specified together; sampling stops when either limit is reached.
+.Sh MEMORY CATEGORIES
+The following categories are displayed in the formatted output.
+Together they make up the
+.Em Physical Memory
+summary.
+.Bl -tag -width "Static carveouts"
+.It Anonymous
+Pageable memory allocated by applications that are not backed by a file.
+.Pp
+.Bl -tag -width "Purgeable" -compact
+.It Active
+The subset of anonymous pages on the active queue.
+.It Inactive
+The subset of anonymous pages on the inactive queue.
+.It Purgeable
+The subset of anonymous pages that the system may reclaim without
+preserving contents
+.Pq i.e. VM_PURGABLE_VOLATILE .
+.El
+.It Cached files
+Pageable memory backed by files on disk
+.Pq e.g.\& mapped files, shared libraries, caches .
+.Pp
+.Bl -tag -width "Shared cache" -compact
+.It Active
+The subset of file-backed pages on the active queue.
+.It Inactive
+The subset of file-backed pages on the inactive queue.
+.It Speculative
+Pages read speculatively from disk that have not yet been referenced.
+.It Secluded
+File-backed pages that are secluded.
+Only shown when non-zero.
+.It Shared cache
+Pages used by the shared cache
+.Pq dyld shared region .
+.It Executable
+Pages containing executable code from mapped binaries.
+.El
+.It Compressor
+Memory consumed by the in-memory compressor to store compressed data
+and, on MTE-capable systems, compressed tags.
+.Pp
+.Bl -tag -width "Compressed tags" -compact
+.It Compressed data
+The subset of compressor pages holding compressed page data
+.Pq excluding tag storage .
+.It Compressed tags
+The bytes consumed by compressed tag storage in the compressor.
+Only shown on MTE-capable systems.
+.El
+.It Free
+Memory not currently in use.
+.Pp
+.Bl -tag -width "Tag storage" -compact
+.It Tag storage
+Tag storage pages that are not currently in use.
+Only shown on MTE-capable systems.
+.El
+.It Wired
+Memory that cannot be paged out or compressed
+.Pq kernel data structures, IOSurfaces, etc. .
+Individual kernel allocation sites are listed as indented subcategories.
+Gathering them requires root privileges or the
+.Li com.apple.private.memoryinfo
+entitlement; without them only the category total is shown.
+.It Static carveouts
+Memory reserved at boot time by the kernel.
+Individual carveout regions from the device tree are listed as indented
+subcategories.
+Nested or overlapping regions are clipped so each physical page is counted
+once, and any unnamed remainder is aggregated into an
+.Em Unmapped
+row.
+.El
+.Pp
+The
+.Em Swap
+category is displayed below the
+.Em Physical Memory
+summary and is not part of the physical memory total.
+.Bl -tag -width "Static carveouts"
+.It Swap
+Compressor pages currently stored in the on-disk swapfile.
+.Pp
+.Bl -tag -width "Swapped data" -compact
+.It Swapped data
+The subset of swap pages holding compressed page data.
+.El
+.El
+.Sh OUTPUT FORMATS
+.Ss Default Po human-readable Pc
+Each category is printed as a section headed by its page count and size.
+Indented subcategory rows show a label, page count, size in megabytes, a
+fixed-width visual bar, and a percentage relative to the enclosing category;
+they are sorted largest first, and any remainder appears as an
+.Em Unaccounted
+row.
+A trailing
+.Em Physical Memory
+section breaks the total down into the main categories, with bars and
+percentages relative to physical memory.
+.Ss CSV
+A header row followed by one data row per sample.
+The first two columns are
+.Li datetime
+.Pq ISO\ 8601
+and
+.Li abstime
+.Pq Unix epoch with millisecond precision .
+All memory values are in bytes.
+.Ss Perfdata
+A perfdata file containing one metric per memory category.
+With
+.Fl \-interval ,
+each sample is written as a separate group.
+All values are in bytes.
+.Sh EXIT STATUS
+.Ex -std
+.Sh EXAMPLES
+Display a one-shot breakdown
+.Pq wired sites require root :
+.Dl # meminfo
+.Pp
+Show only the physical-memory summary and swap:
+.Dl $ meminfo --summary
+.Pp
+Expand wired zones into individual rows:
+.Dl # meminfo --zones
+.Pp
+Show everything, including hidden and overlapping subtotals:
+.Dl # meminfo --all
+.Pp
+Sample every 2 seconds, stop after 10 samples, output as CSV:
+.Dl $ meminfo --csv /tmp/mem.csv --interval 2 --count 10
+.Pp
+Stream CSV for 60 seconds at half-second intervals:
+.Dl $ meminfo --csv /tmp/mem.csv --interval 0.5 --duration 60
+.Sh SEE ALSO
+.Xr memory_pressure 1 ,
+.Xr top 1 ,
+.Xr vm_stat 1 ,
+.Xr zprint 1

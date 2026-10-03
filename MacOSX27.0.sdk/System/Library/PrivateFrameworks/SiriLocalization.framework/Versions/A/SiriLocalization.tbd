@@ -1,0 +1,14 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/SiriLocalization.framework/Versions/A/SiriLocalization'
+current-version: 3600.68.61
+compatibility-version: 0
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _SLInitLogger, _SLLogContext, _SiriLocalizationVersionNumber, 
+                       _SiriLocalizationVersionString, _kSLAdditionalSiriSessionLanguages, 
+                       _kSLAssistantBackedUpDomain, _kSLDefaultLanguageCode, _kSLErrorDomain, 
+                       _kSLLogContext ]
+    objc-classes:    [ SFFeatureFlags, SFPlatform, SLLoader, SLPreferences ]
+...

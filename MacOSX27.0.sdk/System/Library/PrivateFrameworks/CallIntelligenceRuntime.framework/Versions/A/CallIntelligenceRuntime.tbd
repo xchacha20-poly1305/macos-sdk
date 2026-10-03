@@ -1,0 +1,35 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                   arm64e.x1-macos, arm64e.x1-maccatalyst ]
+install-name:    '/System/Library/PrivateFrameworks/CallIntelligenceRuntime.framework/Versions/A/CallIntelligenceRuntime'
+swift-abi-version: 7
+exports:
+  - targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                       arm64e.x1-macos, arm64e.x1-maccatalyst ]
+    symbols:         [ '_$s16CallIntelligence0A11ContextCardV4ItemO0aB7RuntimeE16shortDescriptionSSvg', 
+                       '_$s16CallIntelligence0A11ContextCardV4ItemO0aB7RuntimeE16shortDescriptionSSvpMV', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorO07unknownA4UUIDyA2CmFWC', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorO10taskFailedyA2CmFWC', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorO12invalidStateyA2CmFWC', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorO18inactiveTaskFailedyA2CmFWC', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorO19screeningTaskFailedyA2CmFWC', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorO19userInputTaskFailedyA2CmFWC', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorO25invalidDownlinkMediaTokenyA2CmFWC', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorO8rawValueACSgSS_tcfC', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorO8rawValueSSvg', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorO8rawValueSSvpMV', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorOMa', '_$s23CallIntelligenceRuntime15WaitOnHoldErrorOMn', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorON', '_$s23CallIntelligenceRuntime15WaitOnHoldErrorOSEAAMc', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorOSHAAMc', '_$s23CallIntelligenceRuntime15WaitOnHoldErrorOSQAAMc', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorOSYAAMc', '_$s23CallIntelligenceRuntime15WaitOnHoldErrorOSeAAMc', 
+                       '_$s23CallIntelligenceRuntime15WaitOnHoldErrorOs0G0AAMc', 
+                       '_$s23CallIntelligenceRuntime6DaemonC5startyyYaKF', '_$s23CallIntelligenceRuntime6DaemonC5startyyYaKFTu', 
+                       '_$s23CallIntelligenceRuntime6DaemonCACycfC', '_$s23CallIntelligenceRuntime6DaemonCACycfCTj', 
+                       '_$s23CallIntelligenceRuntime6DaemonCACycfCTq', '_$s23CallIntelligenceRuntime6DaemonCACycfc', 
+                       '_$s23CallIntelligenceRuntime6DaemonCMa', '_$s23CallIntelligenceRuntime6DaemonCMm', 
+                       '_$s23CallIntelligenceRuntime6DaemonCMn', '_$s23CallIntelligenceRuntime6DaemonCMo', 
+                       '_$s23CallIntelligenceRuntime6DaemonCMu', '_$s23CallIntelligenceRuntime6DaemonCN', 
+                       '_$s23CallIntelligenceRuntime6DaemonCfD', '_$s23CallIntelligenceRuntime6DaemonCfd', 
+                       _CallIntelligenceRuntimeVersionNumber, _CallIntelligenceRuntimeVersionString ]
+...

@@ -1,0 +1,11 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/Darwinup.framework/Versions/A/Darwinup'
+current-version: 348.1.1
+compatibility-version: 0
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _DUErrorDomain, _DURootsDidChangeDarwinNotification, __DUMakeError ]
+    objc-classes:    [ DUModification, DURoot, DUSession, DUSessionSummary ]
+...

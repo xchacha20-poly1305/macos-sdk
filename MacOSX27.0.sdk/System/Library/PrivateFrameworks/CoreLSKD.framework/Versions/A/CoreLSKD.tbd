@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+flags:           [ not_app_extension_safe ]
+install-name:    '/System/Library/PrivateFrameworks/CoreLSKD.framework/CoreLSKD'
+current-version: 21.8
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _BBdyFX9JObVXUh8aGhB0aD3, _Mym0f1araacCU5xeSFjr ]
+...

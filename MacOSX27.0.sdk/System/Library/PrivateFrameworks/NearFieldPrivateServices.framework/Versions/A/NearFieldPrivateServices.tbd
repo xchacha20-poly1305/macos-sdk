@@ -1,0 +1,13 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/NearFieldPrivateServices.framework/Versions/A/NearFieldPrivateServices'
+allowable-clients:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    clients:         [ NFCUISceneService, nfcd ]
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _NearFieldPrivateServicesVersionNumber, _NearFieldPrivateServicesVersionString ]
+    objc-classes:    [ NFBSService_BackgroundTagReadingXPC, NFPrivateService, NFRestoreService, 
+                       NFStorageService ]
+...

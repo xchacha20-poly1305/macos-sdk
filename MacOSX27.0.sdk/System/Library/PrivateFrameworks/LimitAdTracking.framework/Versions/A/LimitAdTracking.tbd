@@ -1,0 +1,9 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/LimitAdTracking.framework/Versions/A/LimitAdTracking'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _LimitAdTrackingVersionNumber, _LimitAdTrackingVersionString ]
+    objc-classes:    [ ADTrackingTransparency, APEnforcementManager, APLocalEnforcementManager ]
+...

@@ -1,0 +1,13 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ arm64e-macos, arm64e.x1-macos ]
+install-name:    '/usr/lib/libdpfu.dylib'
+exports:
+  - targets:         [ arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _DPFUGetDeviceModeString, _DPFUGetDeviceStatusString, _DPFUSessionCreate, 
+                       _DPFUSessionEnterUpdateMode, _DPFUSessionGetDeviceInfo, _DPFUSessionGetTypeID, 
+                       _DPFUSessionInstallFilePayload, _DPFUSessionInstallMemoryPayload, 
+                       _DPFUSessionLeaveUpdateMode, _DPFUSessionSetExpectDeviceTerminationUponRestart, 
+                       _DPFUSessionSetLogLevel, _DPFUSessionSetProgressCallback, 
+                       _DPFUSessionSetRestartAfterUpdate, _dpfuUpdateDeviceWithContentsOfFile ]
+...

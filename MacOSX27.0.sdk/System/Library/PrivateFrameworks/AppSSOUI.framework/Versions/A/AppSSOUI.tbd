@@ -1,0 +1,11 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/AppSSOUI.framework/Versions/A/AppSSOUI'
+current-version: 643.1.1
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    objc-classes:    [ SOAgent, SOAgentAppDelegate, SOAgentListener, SOAgentUtils, 
+                       SOAgentWindow, SOAgentWindowController, SOAppSSOListener, 
+                       SODDMConfigurationListener, SOUIAuthorizationViewController ]
+...

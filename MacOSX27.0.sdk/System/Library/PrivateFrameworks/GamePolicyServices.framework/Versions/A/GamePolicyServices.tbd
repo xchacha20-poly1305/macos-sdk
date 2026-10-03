@@ -1,0 +1,12 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/GamePolicyServices.framework/Versions/A/GamePolicyServices'
+current-version: 4.0.8
+compatibility-version: 0
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _GPSMobileAssetXPCClientInterface, _GPSMobileAssetXPCServerInterface, 
+                       _getGPSLogger, _gps_isInternalBuild ]
+    objc-classes:    [ GPSGameFilter, GPSMobileAssetInfo ]
+...

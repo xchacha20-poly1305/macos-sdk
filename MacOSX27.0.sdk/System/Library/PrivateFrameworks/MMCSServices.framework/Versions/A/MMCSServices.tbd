@@ -1,0 +1,11 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/MMCSServices.framework/Versions/A/MMCSServices'
+current-version: 800
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _reasonStringDomainSeparator, _reasonStringElementSeparator ]
+    objc-classes:    [ MMCSController, MMCSGetFile, MMCSPutFile, MMCSRequestorContext, 
+                       MMCSSimpleFile, MMCSUtilities ]
+...

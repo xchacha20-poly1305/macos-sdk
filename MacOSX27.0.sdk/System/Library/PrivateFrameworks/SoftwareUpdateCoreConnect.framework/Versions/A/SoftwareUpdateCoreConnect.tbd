@@ -1,0 +1,12 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/SoftwareUpdateCoreConnect.framework/Versions/A/SoftwareUpdateCoreConnect'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _kSUCoreConnectClientIDTypeAny, _kSUCoreConnectMonitorReplyErrorKey, 
+                       _kSUCoreConnectMonitorReplyMessageKey ]
+    objc-classes:    [ SUCoreConnectBoost, SUCoreConnectClient, SUCoreConnectClientPolicy, 
+                       SUCoreConnectClientProxy, SUCoreConnectConstants, SUCoreConnectMessage, 
+                       SUCoreConnectServer, SUCoreConnectServerPolicy, SUCoreConnectVersion ]
+...

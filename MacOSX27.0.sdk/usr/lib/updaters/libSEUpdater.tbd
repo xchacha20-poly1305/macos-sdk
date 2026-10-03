@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/usr/lib/updaters/libSEUpdater.dylib'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _SEUpdaterCreate, _SEUpdaterExecCommand, _SEUpdaterIsDone, 
+                       _kSECmdCopyIdentifier, _kSECmdPerformNextStage, _kSECmdQueryInfo, 
+                       _kSECmdSendApduFile, _kSECmdVerifyPairing ]
+...

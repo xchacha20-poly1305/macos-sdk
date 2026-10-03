@@ -1,0 +1,59 @@
+.Dd April 30, 2026
+.Dt OS_CROSS_ARCH_IS_SUPPORTED 3
+.Os
+.Sh NAME
+.Nm os_cross_arch_is_supported
+.Nd determine if cross-architecture compatibility is supported
+.Sh SYNOPSIS
+.In os/arch/arm64.h
+.Ft bool
+.Fn os_cross_arch_is_supported "os_cross_arch_t arch"
+.Sh DESCRIPTION
+The
+.Fn os_cross_arch_is_supported
+function returns whether the kernel provides the set of
+cross-architecture compatibility features required by a user-space
+compatibility layer to run processes built for the CPU architecture
+identified by
+.Fa arch
+via translation.
+.Pp
+A
+.Dv true
+return value does not imply that any particular compatibility
+layer is installed, enabled, or functional on the running system;
+it only reports whether the underlying kernel features that such a
+layer depends on are present.
+.Pp
+The
+.Fa arch
+argument must be one of the following constants:
+.Bl -tag -width Ds
+.It Dv OS_CROSS_ARCH_X86_64
+The x86_64 (Intel/AMD 64-bit) architecture.
+.El
+.Pp
+Any other value of
+.Fa arch ,
+including values that may be defined by future SDKs but are not
+recognized by the running system, causes the function to return
+.Dv false .
+.Pp
+The return value is constant for the lifetime of the system and may be
+safely cached by callers.
+.Sh RETURN VALUES
+The
+.Fn os_cross_arch_is_supported
+function returns
+.Dv true
+if cross-architecture compatibility for
+.Fa arch
+is supported, or
+.Dv false
+otherwise.
+.Sh SEE ALSO
+.Xr sysctl 3
+.Sh HISTORY
+The
+.Fn os_cross_arch_is_supported
+function first appeared in macOS 26.6.

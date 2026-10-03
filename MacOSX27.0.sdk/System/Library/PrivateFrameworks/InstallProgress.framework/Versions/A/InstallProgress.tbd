@@ -1,0 +1,14 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/InstallProgress.framework/Versions/A/InstallProgress'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _IPProgressPhaseForLSInstallPhase, _LSInstallPhaseForIPProgressPhase ]
+    objc-classes:    [ IPAppState, IPAppStateSource, IPGlobalInstallableStateSource, 
+                       IPGlobalInstallableStateSourceXPCBehavior, IPInstallableProgress, 
+                       IPInstallableProgressData, IPInstallableProgressSource, IPInstallableState, 
+                       IPInstallableStateSource, IPLocalStateUpdateStream, IPProgressServer, 
+                       IPProgressServerDefaultBehavior, IPPublishedIdentityProgress, 
+                       IPServerXPCTransport ]
+...

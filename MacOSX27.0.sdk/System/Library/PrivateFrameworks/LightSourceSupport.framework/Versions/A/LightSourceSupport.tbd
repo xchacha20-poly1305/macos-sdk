@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/LightSourceSupport.framework/Versions/A/LightSourceSupport'
+current-version: 8.0.74
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _LSSStartServer ]
+    objc-classes:    [ LSSAssertion, LSSLightSource, LSSSubscriber ]
+...

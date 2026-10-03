@@ -1,0 +1,41 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/AppStoreUtilities.framework/Versions/A/AppStoreUtilities'
+swift-abi-version: 7
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ '_$s17AppStoreUtilities018_ASUSQLiteDatabaseB8ProtocolMp', 
+                       '_$s17AppStoreUtilities018_ASUSQLiteDatabaseB8ProtocolPAAE4read7sessionqd__qd__qd_0_Kc_tYaKSo0deB0Cyqd_0_qd_1_GRbzSo0dE7SessionRd_0_So0dE11TransactionRd_1_r1_lF', 
+                       '_$s17AppStoreUtilities018_ASUSQLiteDatabaseB8ProtocolPAAE4read7sessionqd__qd__qd_0_Kc_tYaKSo0deB0Cyqd_0_qd_1_GRbzSo0dE7SessionRd_0_So0dE11TransactionRd_1_r1_lFTu', 
+                       '_$s17AppStoreUtilities018_ASUSQLiteDatabaseB8ProtocolPAAE6modify11transactionqd__qd__qd_1_Kc_tYaKSo0deB0Cyqd_0_qd_1_GRbzSo0dE7SessionRd_0_So0dE11TransactionRd_1_r1_lF', 
+                       '_$s17AppStoreUtilities018_ASUSQLiteDatabaseB8ProtocolPAAE6modify11transactionqd__qd__qd_1_Kc_tYaKSo0deB0Cyqd_0_qd_1_GRbzSo0dE7SessionRd_0_So0dE11TransactionRd_1_r1_lFTu', 
+                       '_$sSo22ASUSQLiteDatabaseStoreCyxq_G03AppC9Utilities01_abC8ProtocolADMc', 
+                       '_$sSo22ASUSQLiteDatabaseStoreCyxq_G03AppC9Utilities01_abC8ProtocolADWP', 
+                       _ASULogHandleForCategory, _ASUSQLEntityPropertyPersistentID, 
+                       _ASUSQLiteApplyConnectionOptions, _ASUSQLiteBindFoundationValue, 
+                       _ASUSQLiteConfigLookaside, _ASUSQLiteCopyFoundationValue, 
+                       _ASUSQLiteCreateErrorForResultCode, _ASUSQLiteDeleteDatabase, 
+                       _ASUSQLiteDidDeleteEntityNotification, _ASUSQLiteEncryptDatabase, 
+                       _ASUSQLiteErrorDomain, _ASUSQLiteGetRelatedFilePath, _ASUSQLiteOpenDatabaseAndApplyOptions, 
+                       _ASUSQLiteOpenFlagForProtectionType, _ASUSQLiteOrderAscending, 
+                       _ASUSQLiteOrderDescending, _ASUSQLitePlaceholderGenerator, 
+                       _ASUSQLiteResultIsSuccess, _ASUSQLiteTrashDatabaseName, _ASUSQLiteUserInfoKeyPersistentID, 
+                       _kASUSQLiteQueryNoLimit ]
+    objc-classes:    [ ASUSQLiteComparisonPredicate, ASUSQLiteCompoundPredicate, 
+                       ASUSQLiteConnection, ASUSQLiteConnectionOptions, ASUSQLiteContainsPredicate, 
+                       ASUSQLiteCursor, ASUSQLiteDatabase, ASUSQLiteDatabaseSession, 
+                       ASUSQLiteDatabaseStore, ASUSQLiteDatabaseStoreDescriptor, 
+                       ASUSQLiteDatabaseStoreMigrator, ASUSQLiteDatabaseStoreSchema, 
+                       ASUSQLiteDatabaseTransaction, ASUSQLiteEncryptionKeyIdentifier, 
+                       ASUSQLiteEntity, ASUSQLiteKeychainHelper, ASUSQLiteMemoryEntity, 
+                       ASUSQLiteNullPredicate, ASUSQLitePredicate, ASUSQLitePreparedStatement, 
+                       ASUSQLitePropertyPredicate, ASUSQLiteQuery, ASUSQLiteQueryDescriptor, 
+                       ASUSQLiteQueryResults, ASUSQLiteSchema, ASUSQLiteSchemaMigration, 
+                       ASUSQLiteStatement, ASUSQLiteTransporter ]
+    objc-ivars:      [ ASUSQLiteComparisonPredicate._comparisonType, ASUSQLiteComparisonPredicate._value, 
+                       ASUSQLiteCompoundPredicate._combinationOperation, ASUSQLiteCompoundPredicate._predicates, 
+                       ASUSQLiteContainsPredicate._negative, ASUSQLiteContainsPredicate._query, 
+                       ASUSQLiteContainsPredicate._queryProperty, ASUSQLiteContainsPredicate._values, 
+                       ASUSQLiteNullPredicate._matchesNull, ASUSQLitePropertyPredicate._property ]
+...

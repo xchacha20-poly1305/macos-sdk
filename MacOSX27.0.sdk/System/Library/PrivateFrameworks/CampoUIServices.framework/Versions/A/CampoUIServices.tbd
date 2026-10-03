@@ -1,0 +1,15 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/CampoUIServices.framework/Versions/A/CampoUIServices'
+current-version: 73.0.24
+swift-abi-version: 7
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ '_$sSo32CampoUIInertAssistantPromptFieldC0A10UIServicesE5coderABSgSo7NSCoderC_tcfC', 
+                       '_$sSo32CampoUIInertAssistantPromptFieldC0A10UIServicesE5coderABSgSo7NSCoderC_tcfc', 
+                       '_$sSo32CampoUIInertAssistantPromptFieldC0A10UIServicesE5frameABSo6CGRectV_tcfC', 
+                       '_$sSo32CampoUIInertAssistantPromptFieldC0A10UIServicesE5frameABSo6CGRectV_tcfc', 
+                       '_$sSo32CampoUIInertAssistantPromptFieldCMa' ]
+    objc-classes:    [ CampoUIInertAssistantPromptField ]
+...

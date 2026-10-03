@@ -1,0 +1,18 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/SAML.framework/Versions/A/SAML'
+current-version: 609.0.2
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _SAMLAttributePropertyNameAccountProviderID, _SAMLAttributePropertyNameAuthenticationTTL, 
+                       _SAMLAttributePropertyNameChannelIDs, _SAMLAttributePropertyNameHBAStatus, 
+                       _SAMLAttributePropertyNameHouseholdID, _SAMLAttributePropertyNameLanguage, 
+                       _SAMLAttributePropertyNameMaxMPAAContentRating, _SAMLAttributePropertyNameMaxVCHIPContentRating, 
+                       _SAMLAttributePropertyNamePostalCodes, _SAMLAttributePropertyNameTransientID, 
+                       _SAMLAttributePropertyNameUserID, _SAMLAuthZDecisionQueryActionPlay, 
+                       _SAMLInvalidDocumentElementErrorForClass, _SAMLParserDetailedErrorsKey, 
+                       _SAMLParserErrorDomain, _SAMLParserErrorForErrorCode ]
+    objc-classes:    [ SAMLAttributeQuery, SAMLAuthNRequest, SAMLAuthZDecisionQuery, 
+                       SAMLLogoutRequest, SAMLParserController, SAMLResponse, XMLWrapperDoc ]
+...

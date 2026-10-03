@@ -1,0 +1,15 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/BulkSymbolication.framework/Versions/A/BulkSymbolication'
+current-version: 439
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _BulkSymbolicationVersionNumber, _BulkSymbolicationVersionString, 
+                       _kBKSFBSJSONErrorDomain, _kBKSJobNoTimeout, _kBKSRequestErrorDomain, 
+                       _kBKSRequestErrorHTTPHeadersKey, _kBKSRequestErrorHTTPStatusCodeKey ]
+    objc-classes:    [ BKSACOAuthCredentials, BKSAppleConnectCredentials, BKSDyldSharedCacheLayoutRequest, 
+                       BKSDyldSharedCacheLayoutResult, BKSDyldSharedCacheLayoutResultEntry, 
+                       BKSJob, BKSRequest, BKSResult, BKSResultCollection, BKSSymbolOwner, 
+                       BKSSymbolOwnerSegment ]
+...

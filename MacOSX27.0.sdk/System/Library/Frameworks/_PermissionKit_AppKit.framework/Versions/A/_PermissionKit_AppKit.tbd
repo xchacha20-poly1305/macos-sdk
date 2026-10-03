@@ -1,0 +1,22 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/Frameworks/_PermissionKit_AppKit.framework/Versions/A/_PermissionKit_AppKit'
+swift-abi-version: 7
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ '_$s13PermissionKit19CommunicationLimitsC01_ab4_AppB0E3ask_2inyAA0A8QuestionCyAA0C5TopicVG_So8NSWindowCtYaKF', 
+                       '_$s13PermissionKit19CommunicationLimitsC01_ab4_AppB0E3ask_2inyAA0A8QuestionCyAA0C5TopicVG_So8NSWindowCtYaKFTu', 
+                       '_$s13PermissionKit9AskCenterC01_ab4_AppB0E020askSignificantChangeA03for14permissionFlow2inAA0A6ResultOAA0A8QuestionCyAA0gE11UpdateTopicVG_AA0aK0OSo8NSWindowCtYaKF', 
+                       '_$s13PermissionKit9AskCenterC01_ab4_AppB0E020askSignificantChangeA03for14permissionFlow2inAA0A6ResultOAA0A8QuestionCyAA0gE11UpdateTopicVG_AA0aK0OSo8NSWindowCtYaKFTu', 
+                       '_$s13PermissionKit9AskCenterC01_ab4_AppB0E021_askSignificantChangeA0_14permissionFlow2inAA0A6ResultOAA0A8QuestionCyxG_AA0aJ0OSo8NSWindowCtYaKAA0M5TopicRzlF', 
+                       '_$s13PermissionKit9AskCenterC01_ab4_AppB0E021_askSignificantChangeA0_14permissionFlow2inAA0A6ResultOAA0A8QuestionCyxG_AA0aJ0OSo8NSWindowCtYaKAA0M5TopicRzlFTu', 
+                       '_$s13PermissionKit9AskCenterC01_ab4_AppB0E17_askAwaitingAlert_2inAA014AcknowledgmentH10UserActionOAA0A8QuestionCyAA011SignificantE11UpdateTopicVG_So8NSWindowCtYaKF', 
+                       '_$s13PermissionKit9AskCenterC01_ab4_AppB0E17_askAwaitingAlert_2inAA014AcknowledgmentH10UserActionOAA0A8QuestionCyAA011SignificantE11UpdateTopicVG_So8NSWindowCtYaKFTu', 
+                       '_$s13PermissionKit9AskCenterC01_ab4_AppB0E3ask_2inyAA0A8QuestionCyAA011SignificantE11UpdateTopicVG_So8NSWindowCtYaKF', 
+                       '_$s13PermissionKit9AskCenterC01_ab4_AppB0E3ask_2inyAA0A8QuestionCyAA011SignificantE11UpdateTopicVG_So8NSWindowCtYaKFTu', 
+                       '_$s13PermissionKit9AskCenterC01_ab4_AppB0E3ask_2inyAA0A8QuestionCyAA18CommunicationTopicVG_So8NSWindowCtYaKF', 
+                       '_$s13PermissionKit9AskCenterC01_ab4_AppB0E3ask_2inyAA0A8QuestionCyAA18CommunicationTopicVG_So8NSWindowCtYaKFTu', 
+                       '_$s13PermissionKit9AskCenterC01_ab4_AppB0E4_ask_2inyAA0A8QuestionCyxG_So8NSWindowCtYaKAA0H5TopicRzlF', 
+                       '_$s13PermissionKit9AskCenterC01_ab4_AppB0E4_ask_2inyAA0A8QuestionCyxG_So8NSWindowCtYaKAA0H5TopicRzlFTu' ]
+...

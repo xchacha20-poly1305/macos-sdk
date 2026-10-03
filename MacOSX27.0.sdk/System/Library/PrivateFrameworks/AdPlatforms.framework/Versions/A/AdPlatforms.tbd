@@ -1,0 +1,12 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                   arm64e.x1-macos, arm64e.x1-maccatalyst ]
+install-name:    '/System/Library/PrivateFrameworks/AdPlatforms.framework/Versions/A/AdPlatforms'
+exports:
+  - targets:         [ x86_64-macos, x86_64-maccatalyst, arm64e-macos, arm64e-maccatalyst, 
+                       arm64e.x1-macos, arm64e.x1-maccatalyst ]
+    symbols:         [ _AdPlatformsVersionNumber, _AdPlatformsVersionString ]
+    objc-classes:    [ ADAttribution, ADStatusConditionRateLimitedObject, ADStatusConditions, 
+                       ADStatusConditionsImpl ]
+...

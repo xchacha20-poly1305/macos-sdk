@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/usr/lib/libcryptex_trampoline.dylib'
+current-version: 761.1.1
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _cryptex_trampoline_upgrade_wait, _cryptex_trampoline_upgrade_wait_options_create, 
+                       _cryptex_trampoline_upgrade_wait_options_destroy, _cryptex_trampoline_upgrade_wait_options_set_cryptex_name ]
+...

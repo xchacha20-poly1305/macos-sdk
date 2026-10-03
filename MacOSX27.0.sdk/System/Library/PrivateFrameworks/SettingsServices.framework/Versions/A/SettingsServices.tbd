@@ -1,0 +1,28 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/SettingsServices.framework/Versions/A/SettingsServices'
+current-version: 2027.0.2
+compatibility-version: 0
+swift-abi-version: 7
+allowable-clients:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    clients:         [ ScreenTimeSettingsFoundation, SettingsHost, SettingsServicesTests, 
+                       settings, systemsettingsagent ]
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ '_$s16SettingsServices0A19SearchIndexerClientC14requestReindex3foryAC0G13DomainRequestVd_tYaKFZ', 
+                       '_$s16SettingsServices0A19SearchIndexerClientC14requestReindex3foryAC0G13DomainRequestVd_tYaKFZTu', 
+                       '_$s16SettingsServices0A19SearchIndexerClientC14requestReindex3forySayAC0G13DomainRequestVG_tYaKFZ', 
+                       '_$s16SettingsServices0A19SearchIndexerClientC14requestReindex3forySayAC0G13DomainRequestVG_tYaKFZTu', 
+                       '_$s16SettingsServices0A19SearchIndexerClientC20ReindexDomainRequestV06searchG00aB3XPC0acG0Vvg', 
+                       '_$s16SettingsServices0A19SearchIndexerClientC20ReindexDomainRequestV06searchG00aB3XPC0acG0VvpMV', 
+                       '_$s16SettingsServices0A19SearchIndexerClientC20ReindexDomainRequestV20openIntentIdentifier08appValueK0017attributionBundleK004hostoK0AESS_S3StcfC', 
+                       '_$s16SettingsServices0A19SearchIndexerClientC20ReindexDomainRequestVMa', 
+                       '_$s16SettingsServices0A19SearchIndexerClientC20ReindexDomainRequestVMn', 
+                       '_$s16SettingsServices0A19SearchIndexerClientC20ReindexDomainRequestVN', 
+                       '_$s16SettingsServices0A19SearchIndexerClientCMa', '_$s16SettingsServices0A19SearchIndexerClientCMm', 
+                       '_$s16SettingsServices0A19SearchIndexerClientCMn', '_$s16SettingsServices0A19SearchIndexerClientCMo', 
+                       '_$s16SettingsServices0A19SearchIndexerClientCMu', '_$s16SettingsServices0A19SearchIndexerClientCN', 
+                       '_$s16SettingsServices0A19SearchIndexerClientCfD', '_$s16SettingsServices0A19SearchIndexerClientCfd' ]
+...

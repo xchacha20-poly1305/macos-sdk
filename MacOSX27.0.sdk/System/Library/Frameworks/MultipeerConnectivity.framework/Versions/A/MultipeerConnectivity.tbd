@@ -1,0 +1,11 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/Frameworks/MultipeerConnectivity.framework/Versions/A/MultipeerConnectivity'
+current-version: 180.100.1
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _MCErrorDomain, _kMCSessionMaximumNumberOfPeers, _kMCSessionMinimumNumberOfPeers ]
+    objc-classes:    [ MCAdvertiserAssistant, MCBrowserViewController, MCNearbyServiceAdvertiser, 
+                       MCNearbyServiceBrowser, MCPeerID, MCSession ]
+...

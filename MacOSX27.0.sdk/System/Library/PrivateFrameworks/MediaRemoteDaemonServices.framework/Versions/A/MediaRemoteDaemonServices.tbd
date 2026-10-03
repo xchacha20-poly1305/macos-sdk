@@ -1,0 +1,9 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/MediaRemoteDaemonServices.framework/Versions/A/MediaRemoteDaemonServices'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _MRDMediaRemoteDaemonServicesIdentifier, _MediaRemoteDaemonServicesVersionNumber, 
+                       _MediaRemoteDaemonServicesVersionString ]
+...

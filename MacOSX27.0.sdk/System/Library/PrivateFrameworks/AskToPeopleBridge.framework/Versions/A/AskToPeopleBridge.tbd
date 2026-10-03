@@ -1,0 +1,22 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/AskToPeopleBridge.framework/Versions/A/AskToPeopleBridge'
+swift-abi-version: 7
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ '_$s17AskToPeopleBridgeAAO03askB10BuyPayload4from0aB4Core9ATPayloadC0C014MessageDetailsV_tKFZ', 
+                       '_$s17AskToPeopleBridgeAAO5ErrorO03notaB3BuyyA2DmFWC', '_$s17AskToPeopleBridgeAAO5ErrorO10Foundation09LocalizedE0AAMc', 
+                       '_$s17AskToPeopleBridgeAAO5ErrorO14emptyRequestIDyA2DmFWC', 
+                       '_$s17AskToPeopleBridgeAAO5ErrorO16errorDescriptionSSSgvg', 
+                       '_$s17AskToPeopleBridgeAAO5ErrorO16errorDescriptionSSSgvpMV', 
+                       '_$s17AskToPeopleBridgeAAO5ErrorO16requestIDNotUUIDyA2DmFWC', 
+                       '_$s17AskToPeopleBridgeAAO5ErrorO2eeoiySbAD_ADtFZ', '_$s17AskToPeopleBridgeAAO5ErrorO4hash4intoys6HasherVz_tF', 
+                       '_$s17AskToPeopleBridgeAAO5ErrorO9hashValueSivg', '_$s17AskToPeopleBridgeAAO5ErrorO9hashValueSivpMV', 
+                       '_$s17AskToPeopleBridgeAAO5ErrorOMa', '_$s17AskToPeopleBridgeAAO5ErrorOMn', 
+                       '_$s17AskToPeopleBridgeAAO5ErrorON', '_$s17AskToPeopleBridgeAAO5ErrorOSHAAMc', 
+                       '_$s17AskToPeopleBridgeAAO5ErrorOSQAAMc', '_$s17AskToPeopleBridgeAAO5ErrorOsAcAMc', 
+                       '_$s17AskToPeopleBridgeAAOMa', '_$s17AskToPeopleBridgeAAOMn', 
+                       '_$s17AskToPeopleBridgeAAON', _AskToPeopleBridgeVersionNumber, 
+                       _AskToPeopleBridgeVersionString ]
+...

@@ -1,0 +1,9 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/AppleScript.framework/Versions/A/AppleScript'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _AppleScriptComponent, _AppletComponent, _GenericComponent, 
+                       _OSAAppletExecute ]
+...

@@ -1,0 +1,9 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/ExclaveSISPTestServices.framework/Versions/A/ExclaveSISPTestServices'
+swift-abi-version: 7
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _ExclaveSISPTestServicesVersionNumber, _ExclaveSISPTestServicesVersionString ]
+...

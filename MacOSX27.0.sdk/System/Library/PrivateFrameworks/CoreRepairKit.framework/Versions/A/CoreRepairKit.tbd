@@ -1,0 +1,11 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/CoreRepairKit.framework/Versions/A/CoreRepairKit'
+exports:
+  - targets:         [ arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _CoreRepairKitVersionNumber, _CoreRepairKitVersionString, 
+                       _kMRDataCollectionQueryTimeout ]
+    objc-classes:    [ CRRepairStatus, CRSystemHealthStatus, MRDataCollectionNotice, 
+                       MRLocalization ]
+...

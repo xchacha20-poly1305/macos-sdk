@@ -1,0 +1,14 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/MobileStoreDemoCore.framework/Versions/A/MobileStoreDemoCore'
+current-version: 1871.0.51
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _MobileStoreDemoCoreVersionNumber, _MobileStoreDemoCoreVersionString, 
+                       _defaultLogHandle, _kMSDDemoUserPasswordKey, _kMSDDemoUserUIDKey, 
+                       _messageLogHandle, _safeAssignError, _safeAssignErrorNoOverwrite, 
+                       _safeAssignErrorWithReason, _screenSaverLogHandle, _signpostLogHandle ]
+    objc-classes:    [ MSDBAAInterface, MSDCDemoState, MSDCHelper, MSDCOnDemandUpdateController, 
+                       MSDTestPreferences ]
+...

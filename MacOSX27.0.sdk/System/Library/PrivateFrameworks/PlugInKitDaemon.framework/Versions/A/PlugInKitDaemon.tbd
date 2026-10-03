@@ -1,0 +1,11 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/PlugInKitDaemon.framework/Versions/A/PlugInKitDaemon'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    objc-classes:    [ PKDAnnotationStore, PKDContainerProvider, PKDExternalProviders, 
+                       PKDPersona, PKDPersonaCache, PKDPlugIn, PKDPlugInHold, PKDQuery, 
+                       PKDSecurityProvider, PKDServer, PKDTransaction, PKDUserManagementProvider, 
+                       PKDUserPrefs, PKDXpcClient, PKDatabase ]
+...

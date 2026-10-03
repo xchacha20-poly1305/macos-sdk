@@ -1,0 +1,11 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/AudioTranscriptionAnalysis.framework/Versions/A/AudioTranscriptionAnalysis'
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _ATAServerStart ]
+    objc-classes:    [ ATAGeneratedAudioMetadata, ATATranscriptionClient, ATATranscriptionConfiguration, 
+                       ATATranscriptionResult, ATATranslationClient, ATATranslationConfiguration, 
+                       ATATranslationResult ]
+...

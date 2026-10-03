@@ -1,0 +1,29 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/SensorAccess.framework/Versions/A/SensorAccess'
+current-version: 0
+compatibility-version: 0
+swift-abi-version: 7
+exports:
+  - targets:         [ x86_64-macos, arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ '_$s12SensorAccess0aB5ErrorO03_nsC6DomainSSvgZ', '_$s12SensorAccess0aB5ErrorO03_nsC6DomainSSvpZMV', 
+                       '_$s12SensorAccess0aB5ErrorO10Foundation021_ObjectiveCBridgeableC0AAMc', 
+                       '_$s12SensorAccess0aB5ErrorO10Foundation15_BridgedNSErrorAAMc', 
+                       '_$s12SensorAccess0aB5ErrorO11descriptionSSvg', '_$s12SensorAccess0aB5ErrorO11descriptionSSvpMV', 
+                       '_$s12SensorAccess0aB5ErrorO8rawValueACSgSi_tcfC', '_$s12SensorAccess0aB5ErrorO8rawValueSivg', 
+                       '_$s12SensorAccess0aB5ErrorO8rawValueSivpMV', '_$s12SensorAccess0aB5ErrorOMa', 
+                       '_$s12SensorAccess0aB5ErrorOMn', '_$s12SensorAccess0aB5ErrorON', 
+                       '_$s12SensorAccess0aB5ErrorOSHAAMc', '_$s12SensorAccess0aB5ErrorOSQAAMc', 
+                       '_$s12SensorAccess0aB5ErrorOSYAAMc', '_$s12SensorAccess0aB5ErrorOs0C0AAMc', 
+                       '_$s12SensorAccess0aB5ErrorOs23CustomStringConvertibleAAMc', 
+                       '_$sSo20SensorAccessDurationC0aB0E11descriptionSSvg', '_$sSo20SensorAccessDurationCMa', 
+                       '_$sSo21SensorAccessIndicatorCMa', '_$sSo23SensorAccessDeviceStateC0aB0E11descriptionSSvg', 
+                       '_$sSo23SensorAccessDeviceStateC0aB0EABycfC', '_$sSo23SensorAccessDeviceStateC0aB0EABycfc', 
+                       '_$sSo23SensorAccessDeviceStateCMa', '_$sSo27SensorAccessIndicatorHealthC0aB0E11descriptionSSvg', 
+                       '_$sSo27SensorAccessIndicatorHealthC0aB0EABycfC', '_$sSo27SensorAccessIndicatorHealthC0aB0EABycfc', 
+                       '_$sSo27SensorAccessIndicatorHealthCMa', _SensorAccessVersionNumber, 
+                       _SensorAccessVersionString ]
+    objc-classes:    [ SensorAccessDeviceState, SensorAccessDuration, SensorAccessIndicator, 
+                       SensorAccessIndicatorHealth ]
+...

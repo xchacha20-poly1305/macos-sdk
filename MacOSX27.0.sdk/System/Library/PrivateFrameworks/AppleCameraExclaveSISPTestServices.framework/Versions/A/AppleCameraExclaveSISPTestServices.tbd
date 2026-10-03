@@ -1,0 +1,9 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ arm64e-macos, arm64e.x1-macos ]
+install-name:    '/System/Library/PrivateFrameworks/AppleCameraExclaveSISPTestServices.framework/Versions/A/AppleCameraExclaveSISPTestServices'
+swift-abi-version: 7
+exports:
+  - targets:         [ arm64e-macos, arm64e.x1-macos ]
+    symbols:         [ _AppleCameraExclaveSISPTestServicesVersionNumber, _AppleCameraExclaveSISPTestServicesVersionString ]
+...
